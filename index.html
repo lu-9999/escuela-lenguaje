@@ -20,32 +20,20 @@
     body { font-family: 'Lato', sans-serif; color: var(--text); background: var(--white); line-height: 1.65; }
 
     /* ── TOPBAR ── */
-    .topbar {
-      background: var(--text);
-      color: rgba(255,255,255,.82);
-      font-size: .8rem;
-      padding: 0 2rem;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .topbar-left { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
-    .topbar-item { display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
-    .topbar-item a { color: rgba(255,255,255,.82); text-decoration: none; transition: color .2s; }
-    .topbar-item a:hover { color: var(--green-light); }
-    .topbar-right { display: flex; align-items: center; gap: 1rem; }
-    .topbar-social a {
-      color: rgba(255,255,255,.6);
-      text-decoration: none;
-      font-size: .75rem;
-      display: flex; align-items: center; gap: .3rem;
-      transition: color .2s;
-    }
-    .topbar-social a:hover { color: var(--green-light); }
+    .topbar{background:#5B8FCC;color:rgba(255,255,255,.92);font-size:.8rem;padding:0 2rem;height:36px;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .topbar-left{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;}
+    .topbar-item{display:flex;align-items:center;gap:.4rem;white-space:nowrap;}
+    .topbar-item a{color:rgba(255,255,255,.92);text-decoration:none;transition:color .2s;}
+    .topbar-item a:hover{color:#fff;}
+    .topbar-right{display:flex;align-items:center;gap:1rem;}
+    .topbar-social a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.75rem;display:flex;align-items:center;gap:.3rem;transition:color .2s;}
+    .topbar-social a:hover{color:#fff;}
 
     /* ── NAV ── */
+    /* ── NAV LOGO ── */
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-logo-img{height:54px;width:auto;object-fit:contain;}
+
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(255,255,255,0.97);
@@ -244,18 +232,17 @@
     .form-success p { color:var(--gray-600);margin-top:.5rem; }
 
     /* ── FOOTER ── */
-    footer { background:var(--text);color:rgba(255,255,255,.75);padding:3rem 2rem 2rem;text-align:center; }
-    .footer-logo { font-family:'Nunito',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);margin-bottom:.8rem; }
-    .footer-logo span { color:var(--green-light); }
-    footer p { font-size:.88rem;margin-bottom:.4rem; }
-    .footer-links { display:flex;gap:1.5rem;justify-content:center;margin:1.2rem 0;flex-wrap:wrap; }
-    .footer-links a { color:rgba(255,255,255,.6);text-decoration:none;font-size:.88rem;transition:color .2s; }
-    .footer-links a:hover { color:var(--green-light); }
-    .footer-divider { border:none;border-top:1px solid rgba(255,255,255,.1);margin:1.5rem auto;max-width:400px; }
-    .footer-copy { font-size:.8rem;color:rgba(255,255,255,.4); }
-    .footer-social { display:flex;gap:1rem;justify-content:center;margin-top:1rem; }
-    .footer-social a { width:38px;height:38px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;transition:background .2s; }
-    .footer-social a:hover { background:var(--green); }
+    footer{background:#5B8FCC;color:rgba(255,255,255,.92);padding:3rem 2rem 2rem;text-align:center;}
+    .footer-logo-img{height:64px;object-fit:contain;margin-bottom:.8rem;display:block;margin-left:auto;margin-right:auto;}
+    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
+    .footer-links{display:flex;gap:1.5rem;justify-content:center;margin:1.2rem 0;flex-wrap:wrap;}
+    .footer-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.88rem;transition:color .2s;}
+    .footer-links a:hover{color:#fff;}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,.2);margin:1.5rem auto;max-width:400px;}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,.55);}
+    .footer-social{display:flex;gap:1rem;justify-content:center;margin-top:1rem;}
+    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
+    .footer-social a:hover{background:rgba(255,255,255,.4);}
 
     /* ── WHATSAPP ── */
     .whatsapp-float { position:fixed;bottom:24px;right:24px;z-index:200;background:#25D366;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s;animation:pulse 2s infinite; }
@@ -289,7 +276,19 @@
 <div class="topbar">
   <div class="topbar-left">
     <div class="topbar-item">📍 Del Rosario N°4, Puerto Varas</div>
-    <div class="topbar-item">📞 <a href="tel:+56963039214">+56 9 6303 9214</a></div>
+    <div class="topbar-item">📞 <a href="tel:+56951491977">+56 9 5149 1977</a></div>
+    <div class="topbar-item">✉️ <a href="mailto:asoledadvera@gmail.com">asoledadvera@gmail.com</a></div>
+    <div class="topbar-item">🕗 Lun–Vie 08:00–13:30 hrs</div>
+  </div>
+  <div class="topbar-right topbar-social">
+    <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+  </div>
+</div>
+
+    <div class="topbar-item">📞 <a href="tel:+56951491977">+56 9 5149 1977</a></div>
     <div class="topbar-item">✉️ <a href="mailto:asoledadvera@gmail.com">asoledadvera@gmail.com</a></div>
     <div class="topbar-item">🕗 Lun–Vie 08:00–13:30 hrs</div>
   </div>
@@ -303,12 +302,11 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-icon">🌱</div>
-    <div class="nav-logo-text">Escuela de Lenguaje<br><span>Tecnológica</span></div>
+    <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="nav-logo-img"/>
   </a>
-  <ul class="nav-links">
-    <li><a href="#">Inicio</a></li>
+    <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
     <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
     <li><a href="cronograma.html">Cronograma</a></li>
     <li><a href="galeria.html">Galería</a></li>
@@ -320,7 +318,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#" onclick="toggleMenu()">Inicio</a>
+  <a href="index.html" onclick="toggleMenu()">Inicio</a>
   <a href="sobre-nosotros.html" onclick="toggleMenu()">Sobre Nosotros</a>
   <a href="cronograma.html" onclick="toggleMenu()">Cronograma</a>
   <a href="galeria.html" onclick="toggleMenu()">Galería</a>
@@ -497,7 +495,7 @@
         <h2>¿Listo para dar el primer paso?</h2>
         <p>Completa el formulario y te contactaremos a la brevedad. También puedes escribirnos directamente por WhatsApp.</p>
         <div class="contacto-items">
-          <div class="contacto-item"><div class="contacto-item-icon ci-green">📞</div><div><strong>Teléfono / WhatsApp</strong><a href="https://wa.me/56963039214" target="_blank">+56 9 6303 9214</a></div></div>
+          <div class="contacto-item"><div class="contacto-item-icon ci-green">📞</div><div><strong>Teléfono / WhatsApp</strong><a href="https://wa.me/56963039214" target="_blank">+56 9 5149 1977</a></div></div>
           <div class="contacto-item"><div class="contacto-item-icon ci-orange">✉️</div><div><strong>Correo electrónico</strong><a href="mailto:asoledadvera@gmail.com">asoledadvera@gmail.com</a></div></div>
           <div class="contacto-item"><div class="contacto-item-icon ci-sky">📘</div><div><strong>Facebook</strong><a href="https://www.facebook.com/escuelita.tecnologica" target="_blank">@escuelita.tecnologica</a></div></div>
           <div class="contacto-item"><div class="contacto-item-icon" style="background:var(--sky-pale);">📍</div><div><strong>Dirección</strong><span>Del Rosario N°4, Puerto Varas</span></div></div>
@@ -533,15 +531,15 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Escuela de Lenguaje <span>Tecnológica</span></div>
+  <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="footer-logo-img"/>
   <p>Escuela Especial de Lenguaje Tecnológica — Del Rosario N°4, Puerto Varas</p>
   <p>Directora: Alicia Vera Sánchez</p>
   <div class="footer-links">
-    <a href="#">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="sobre-nosotros.html">Sobre Nosotros</a>
     <a href="cronograma.html">Cronograma</a>
     <a href="galeria.html">Galería</a>
-    <a href="#contacto">Contacto</a>
+    <a href="index.html#contacto">Contacto</a>
   </div>
   <div class="footer-social">
     <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
