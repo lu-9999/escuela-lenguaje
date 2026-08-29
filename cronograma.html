@@ -1,249 +1,443 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escuela Tecnológica - Cronograma</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cronograma — Escuela de Lenguaje Tecnológica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --primary-color: #1e3a8a;
-      --secondary-color: #3b82f6;
-      --accent-color: #f59e0b;
-      --text-dark: #1f2937;
-      --text-light: #f9fafb;
-      --bg-light: #f3f4f6;
-      --card-bg: #ffffff;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --green:#7EC8A4;--green-light:#B8E4D0;--green-pale:#E8F7F1;
+      --orange:#F4A96A;--orange-pale:#FEF3E8;
+      --sky:#7AC4DC;--sky-pale:#E5F5FB;
+      --yellow:#F6D15E;--yellow-pale:#FEFAE8;
+      --white:#FFFFFF;--gray-50:#F9FAFB;--gray-100:#F1F3F5;
+      --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-600:#4B5563;
+      --text:#2D3A4A;--radius:14px;--radius-lg:22px;
     }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);line-height:1.65;}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:2px solid var(--green-light);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
+    .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .nav-logo-icon{width:42px;height:42px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;}
+    .nav-logo-text{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--text);line-height:1.2;}
+    .nav-logo-text span{color:var(--green);}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
+    .nav-links a{text-decoration:none;color:var(--gray-600);font-weight:600;font-size:.9rem;transition:color .2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--green);}
+    .nav-cta{background:var(--orange);color:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;padding:.55rem 1.2rem;border-radius:30px;text-decoration:none;transition:background .2s,transform .15s;}
+    .nav-cta:hover{background:#e8944f;transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;}
+    .mobile-menu{display:none;}
+
+    /* PAGE HERO */
+    .page-hero{
+      background:linear-gradient(135deg,var(--sky-pale) 0%,var(--green-pale) 100%);
+      padding:60px 2rem 50px;text-align:center;
     }
+    .page-hero-badge{display:inline-block;background:var(--sky);color:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .9rem;border-radius:30px;margin-bottom:1rem;}
+    .page-hero h1{font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--text);margin-bottom:.8rem;}
+    .page-hero p{color:var(--gray-600);font-size:1.05rem;max-width:520px;margin:0 auto;}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
+    /* LAYOUT */
+    .container{max-width:1100px;margin:0 auto;}
+    section{padding:60px 2rem;}
+    .section-eyebrow{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem;}
+    .section-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2rem);color:var(--text);margin-bottom:1rem;}
+
+    /* HORARIO SEMANAL */
+    #horario-semanal{background:var(--white);}
+    .week-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:1rem;
     }
-
-    /* NAV FIX & STYLING */
-    nav {
-      background-color: var(--primary-color);
-      height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .day-col{display:flex;flex-direction:column;gap:.7rem;}
+    .day-header{
+      background:var(--green);color:var(--white);
+      font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;
+      padding:.7rem;border-radius:var(--radius);text-align:center;
     }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: bold;
-      font-size: 1.2rem;
+    .day-col:nth-child(5) .day-header{background:var(--sky);}
+    .block{
+      background:var(--gray-50);border-radius:var(--radius);
+      padding:.8rem .9rem;border-left:3px solid var(--green);
+      font-size:.83rem;
     }
+    .day-col:nth-child(5) .block{border-left-color:var(--sky);}
+    .block-time{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);font-size:.78rem;display:block;margin-bottom:.2rem;}
+    .day-col:nth-child(5) .block-time{color:var(--sky);}
+    .block-label{color:var(--text);font-weight:600;display:block;}
+    .block-sub{color:var(--gray-600);font-size:.78rem;margin-top:.15rem;display:block;}
+    .block.break{border-left-color:var(--orange);background:var(--orange-pale);}
+    .block.break .block-time{color:var(--orange);}
 
-    /* Solución crucial para el logo */
-    .nav-logo-img {
-      height: 48px;
-      width: auto;
-      max-width: 180px;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.2s ease;
+    /* CALENDARIO EVENTOS */
+    #eventos{background:var(--gray-50);}
+    .eventos-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;}
+    .mes-selector{display:flex;gap:.5rem;flex-wrap:wrap;}
+    .mes-btn{
+      background:var(--white);border:2px solid var(--gray-100);border-radius:30px;
+      padding:.35rem .9rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;
+      cursor:pointer;color:var(--gray-600);transition:all .2s;
     }
+    .mes-btn:hover,.mes-btn.active{background:var(--green);color:var(--white);border-color:var(--green);}
 
-    .nav-logo-img:hover {
-      transform: scale(1.03);
+    .eventos-list{display:flex;flex-direction:column;gap:1.1rem;}
+    .evento-item{
+      display:flex;gap:1.2rem;align-items:flex-start;
+      background:var(--white);border-radius:var(--radius-lg);padding:1.4rem 1.6rem;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      border-left:4px solid var(--green);
+      transition:box-shadow .2s;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
+    .evento-item:hover{box-shadow:0 5px 18px rgba(0,0,0,.1);}
+    .evento-item.orange{border-left-color:var(--orange);}
+    .evento-item.sky{border-left-color:var(--sky);}
+    .evento-item.yellow{border-left-color:var(--yellow);}
+    .evento-fecha{
+      min-width:54px;text-align:center;
+      background:var(--green-pale);border-radius:var(--radius);
+      padding:.6rem .5rem;flex-shrink:0;
     }
+    .evento-item.orange .evento-fecha{background:var(--orange-pale);}
+    .evento-item.sky .evento-fecha{background:var(--sky-pale);}
+    .evento-item.yellow .evento-fecha{background:var(--yellow-pale);}
+    .evento-dia{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.4rem;color:var(--green);line-height:1;}
+    .evento-item.orange .evento-dia{color:var(--orange);}
+    .evento-item.sky .evento-dia{color:var(--sky);}
+    .evento-item.yellow .evento-dia{color:#c8a80a;}
+    .evento-mes{font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--gray-400);letter-spacing:.05em;}
+    .evento-body{}
+    .evento-tipo{font-size:.75rem;font-family:'Nunito',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:.25rem;}
+    .evento-item.orange .evento-tipo{color:var(--orange);}
+    .evento-item.sky .evento-tipo{color:var(--sky);}
+    .evento-item.yellow .evento-tipo{color:#a87c00;}
+    .evento-titulo{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:.3rem;}
+    .evento-desc{font-size:.88rem;color:var(--gray-600);}
+    .evento-hora{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--gray-400);margin-top:.5rem;}
 
-    .nav-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--accent-color);
-    }
-
-    /* CONTAINER & MAIN CONTENT */
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .header-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .header-title h1 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .header-title p {
-      color: #6b7280;
-      font-size: 1.1rem;
-    }
-
-    /* TABLE STYLING */
-    .table-responsive {
-      overflow-x: auto;
-      background: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    th, td {
-      padding: 1rem 1.2rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    th {
-      background-color: var(--primary-color);
-      color: var(--text-light);
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-
-    tr:hover {
-      background-color: #f9fafb;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .tag-theory { background: #dbeafe; color: #1e40af; }
-    .tag-workshop { background: #fef3c7; color: #92400e; }
-    .tag-lab { background: #dcfce7; color: #166534; }
+    .no-eventos{text-align:center;padding:3rem;color:var(--gray-400);font-size:.95rem;}
+    .no-eventos span{font-size:2.5rem;display:block;margin-bottom:.8rem;}
 
     /* FOOTER */
-    footer {
-      background-color: var(--primary-color);
-      color: var(--text-light);
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 3rem;
-    }
+    footer{background:var(--text);color:rgba(255,255,255,.75);padding:2.5rem 2rem 2rem;text-align:center;}
+    .footer-logo{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:.6rem;}
+    .footer-logo span{color:var(--green-light);}
+    .footer-links{display:flex;gap:1.2rem;justify-content:center;margin:.8rem 0;flex-wrap:wrap;}
+    .footer-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .2s;}
+    .footer-links a:hover{color:var(--green-light);}
+    .footer-copy{font-size:.78rem;color:rgba(255,255,255,.35);margin-top:.8rem;}
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem;
-      }
-      .nav-links {
-        margin-top: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    /* WHATSAPP */
+    .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:200;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s;}
+    .whatsapp-float:hover{transform:scale(1.1);}
+    .whatsapp-float svg{width:26px;height:26px;fill:white;}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .week-grid{grid-template-columns:repeat(3,1fr);}
+      .day-col:nth-child(4),.day-col:nth-child(5){display:none;}
+      .week-note{display:block;}
     }
+    @media(max-width:768px){
+      .nav-links,.nav-cta{display:none;}
+      .hamburger{display:flex;}
+      .mobile-menu{position:fixed;top:70px;left:0;right:0;background:var(--white);padding:1.5rem 2rem;box-shadow:0 8px 24px rgba(0,0,0,.12);flex-direction:column;gap:1.2rem;z-index:99;}
+      .mobile-menu.open{display:flex;}
+      .mobile-menu a{text-decoration:none;color:var(--text);font-weight:600;font-size:1rem;padding:.5rem 0;border-bottom:1px solid var(--gray-100);}
+      .mobile-menu .mob-cta{background:var(--orange);color:var(--white)!important;border:none!important;text-align:center;padding:.75rem!important;border-radius:30px;font-family:'Nunito',sans-serif;}
+      .week-grid{grid-template-columns:1fr 1fr;}
+      .day-col:nth-child(4),.day-col:nth-child(5){display:none;}
+    }
+    .week-note{display:none;margin-top:1rem;background:var(--sky-pale);border-radius:var(--radius);padding:.8rem 1rem;font-size:.85rem;color:var(--gray-600);border-left:3px solid var(--sky);}
+    @media(max-width:900px){.week-note{display:block;}}
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="nav-brand">
-      <img src="logo.png" alt="Escuela Tecnológica Logo" class="nav-logo-img">
-      <span>Escuela Tecnológica</span>
-    </a>
+<nav>
+    <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="nav-logo-img"/>
+  </a>
     <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="cursos.html">Cursos</a></li>
-      <li><a href="cronograma.html" class="active">Cronograma</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+    <li><a href="cronograma.html" class="active">Cronograma</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+  </ul>
+  <a href="index.html#contacto" class="nav-cta">Inscribir a mi hijo/a</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Inicio</a>
+  <a href="sobre-nosotros.html" onclick="toggleMenu()">Sobre Nosotros</a>
+  <a href="cronograma.html" onclick="toggleMenu()">Cronograma</a>
+  <a href="galeria.html" onclick="toggleMenu()">Galería</a>
+  <a href="index.html#contacto" class="mob-cta" onclick="toggleMenu()">Inscribir a mi hijo/a</a>
+</div>
+
+<div class="page-hero">
+  <span class="page-hero-badge">Organización escolar</span>
+  <h1>📅 Cronograma 2025</h1>
+  <p>Horario semanal de clases y calendario de eventos, talleres y actividades del año escolar.</p>
+</div>
+
+<!-- HORARIO SEMANAL -->
+<section id="horario-semanal">
   <div class="container">
-    <div class="header-title">
-      <h1>Cronograma de Actividades</h1>
-      <p>Revisa la programación detallada de módulos, talleres y laboratorios prácticos.</p>
+    <div style="margin-bottom:2rem;">
+      <div class="section-eyebrow">Horario semanal</div>
+      <h2 class="section-title">Distribución de la jornada</h2>
+      <p style="color:var(--gray-600);">Jornada de lunes a viernes. Clases de 08:00 a 12:00 / 13:00 hrs según el día.</p>
+    </div>
+    <div class="week-grid">
+      <div class="day-col">
+        <div class="day-header">Lunes</div>
+        <div class="block"><span class="block-time">08:00 – 08:30</span><span class="block-label">Recepción y rutina</span><span class="block-sub">Saludo matutino, asistencia</span></div>
+        <div class="block"><span class="block-time">08:30 – 09:30</span><span class="block-label">Lenguaje y comunicación</span><span class="block-sub">Comprensión oral y expresión</span></div>
+        <div class="block break"><span class="block-time">09:30 – 10:00</span><span class="block-label">🍎 Colación</span></div>
+        <div class="block"><span class="block-time">10:00 – 11:00</span><span class="block-label">Fonoaudiología grupal</span><span class="block-sub">Actividades dirigidas</span></div>
+        <div class="block"><span class="block-time">11:00 – 12:00</span><span class="block-label">Motricidad y arte</span><span class="block-sub">Expresión artística</span></div>
+        <div class="block"><span class="block-time">12:00 – 13:00</span><span class="block-label">🍽️ Almuerzo</span></div>
+      </div>
+      <div class="day-col">
+        <div class="day-header">Martes</div>
+        <div class="block"><span class="block-time">08:00 – 08:30</span><span class="block-label">Recepción y rutina</span></div>
+        <div class="block"><span class="block-time">08:30 – 09:30</span><span class="block-label">Matemática y lógica</span><span class="block-sub">Nociones básicas pre-kínder</span></div>
+        <div class="block break"><span class="block-time">09:30 – 10:00</span><span class="block-label">🍎 Colación</span></div>
+        <div class="block"><span class="block-time">10:00 – 11:30</span><span class="block-label">Fonoaudiología individual</span><span class="block-sub">Sesiones por alumno</span></div>
+        <div class="block"><span class="block-time">11:30 – 12:30</span><span class="block-label">Juego libre guiado</span></div>
+        <div class="block"><span class="block-time">12:30 – 13:00</span><span class="block-label">🍽️ Almuerzo</span></div>
+      </div>
+      <div class="day-col">
+        <div class="day-header">Miércoles</div>
+        <div class="block"><span class="block-time">08:00 – 08:30</span><span class="block-label">Recepción y rutina</span></div>
+        <div class="block"><span class="block-time">08:30 – 09:30</span><span class="block-label">Ciencias y entorno</span><span class="block-sub">Exploración y descubrimiento</span></div>
+        <div class="block break"><span class="block-time">09:30 – 10:00</span><span class="block-label">🍎 Colación</span></div>
+        <div class="block"><span class="block-time">10:00 – 11:00</span><span class="block-label">Fonoaudiología grupal</span></div>
+        <div class="block"><span class="block-time">11:00 – 12:00</span><span class="block-label">Taller de padres</span><span class="block-sub">Mensual, cuando corresponde</span></div>
+        <div class="block"><span class="block-time">12:00 – 13:00</span><span class="block-label">🍽️ Almuerzo</span></div>
+      </div>
+      <div class="day-col">
+        <div class="day-header">Jueves</div>
+        <div class="block"><span class="block-time">08:00 – 08:30</span><span class="block-label">Recepción y rutina</span></div>
+        <div class="block"><span class="block-time">08:30 – 09:30</span><span class="block-label">Lenguaje y cuento</span><span class="block-sub">Narrativa y vocabulario</span></div>
+        <div class="block break"><span class="block-time">09:30 – 10:00</span><span class="block-label">🍎 Colación</span></div>
+        <div class="block"><span class="block-time">10:00 – 11:30</span><span class="block-label">Fonoaudiología individual</span></div>
+        <div class="block"><span class="block-time">11:30 – 12:30</span><span class="block-label">Música y movimiento</span></div>
+        <div class="block"><span class="block-time">12:30 – 13:00</span><span class="block-label">🍽️ Almuerzo</span></div>
+      </div>
+      <div class="day-col">
+        <div class="day-header">Viernes</div>
+        <div class="block"><span class="block-time">08:00 – 08:30</span><span class="block-label">Recepción y rutina</span></div>
+        <div class="block"><span class="block-time">08:30 – 10:00</span><span class="block-label">Proyecto semanal</span><span class="block-sub">Cierre de unidad temática</span></div>
+        <div class="block break"><span class="block-time">10:00 – 10:20</span><span class="block-label">🍎 Colación</span></div>
+        <div class="block"><span class="block-time">10:20 – 11:30</span><span class="block-label">Expresión libre y arte</span></div>
+        <div class="block"><span class="block-time">11:30 – 12:00</span><span class="block-label">Cierre semanal</span><span class="block-sub">Resumen y despedida</span></div>
+      </div>
+    </div>
+    <div class="week-note">📱 En pantallas pequeñas se muestran lunes a miércoles. Para ver el horario completo, rota tu pantalla o accede desde un computador.</div>
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section id="eventos">
+  <div class="container">
+    <div class="eventos-header">
+      <div>
+        <div class="section-eyebrow">Calendario</div>
+        <h2 class="section-title" style="margin-bottom:0;">Eventos y actividades 2025</h2>
+      </div>
+      <div class="mes-selector">
+        <button class="mes-btn active" onclick="filtrarMes('todos',this)">Todos</button>
+        <button class="mes-btn" onclick="filtrarMes('mar',this)">Mar</button>
+        <button class="mes-btn" onclick="filtrarMes('abr',this)">Abr</button>
+        <button class="mes-btn" onclick="filtrarMes('may',this)">May</button>
+        <button class="mes-btn" onclick="filtrarMes('jun',this)">Jun</button>
+        <button class="mes-btn" onclick="filtrarMes('jul',this)">Jul</button>
+        <button class="mes-btn" onclick="filtrarMes('ago',this)">Ago</button>
+        <button class="mes-btn" onclick="filtrarMes('sep',this)">Sep</button>
+        <button class="mes-btn" onclick="filtrarMes('oct',this)">Oct</button>
+        <button class="mes-btn" onclick="filtrarMes('nov',this)">Nov</button>
+        <button class="mes-btn" onclick="filtrarMes('dic',this)">Dic</button>
+      </div>
     </div>
 
-    <div class="table-responsive">
-      <table>
-        <thead>
-          <tr>
-            <th>Módulo / Sesión</th>
-            <th>Fecha y Hora</th>
-            <th>Tipo</th>
-            <th>Tema Principal</th>
-            <th>Instructor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Módulo 1</strong></td>
-            <td>Lunes 10:00 - 12:30</td>
-            <td><span class="tag tag-theory">Teoría</span></td>
-            <td>Introducción al Desarrollo Web y Arquitectura HTTP</td>
-            <td>Prof. Alex Rivera</td>
-          </tr>
-          <tr>
-            <td><strong>Módulo 2</strong></td>
-            <td>Miércoles 14:00 - 17:00</td>
-            <td><span class="tag tag-lab">Laboratorio</span></td>
-            <td>Maquetación Avanzada con HTML5 & CSS Layouts</td>
-            <td>Ing. Elena Gómez</td>
-          </tr>
-          <tr>
-            <td><strong>Módulo 3</strong></td>
-            <td>Viernes 09:00 - 12:00</td>
-            <td><span class="tag tag-workshop">Taller</span></td>
-            <td>Lógica de Programación y DOM con JavaScript</td>
-            <td>Carlos Mendoza</td>
-          </tr>
-          <tr>
-            <td><strong>Módulo 4</strong></td>
-            <td>Sábado 10:00 - 13:00</td>
-            <td><span class="tag tag-lab">Laboratorio</span></td>
-            <td>Integración de APIs y Despliegue en la Nube</td>
-            <td>Ing. Elena Gómez</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="eventos-list" id="eventosList">
+
+      <div class="evento-item" data-mes="mar">
+        <div class="evento-fecha"><div class="evento-dia">05</div><div class="evento-mes">Mar</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">📋 Inicio de clases</div>
+          <div class="evento-titulo">Inicio año escolar 2025</div>
+          <div class="evento-desc">Bienvenida oficial a todos los niños y niñas. Se entrega agenda escolar y materiales.</div>
+          <div class="evento-hora">🕗 08:00 hrs — Patio central</div>
+        </div>
+      </div>
+
+      <div class="evento-item orange" data-mes="mar">
+        <div class="evento-fecha"><div class="evento-dia">19</div><div class="evento-mes">Mar</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">👨‍👩‍👧 Reunión de apoderados</div>
+          <div class="evento-titulo">Primera reunión de apoderados 2025</div>
+          <div class="evento-desc">Presentación del equipo, proyecto educativo y reglamento interno. Asistencia obligatoria.</div>
+          <div class="evento-hora">🕑 14:00 hrs — Sala multiuso</div>
+        </div>
+      </div>
+
+      <div class="evento-item sky" data-mes="abr">
+        <div class="evento-fecha"><div class="evento-dia">22</div><div class="evento-mes">Abr</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🌍 Efeméride</div>
+          <div class="evento-titulo">Día de la Tierra</div>
+          <div class="evento-desc">Actividades de educación ambiental, manualidades recicladas y juego en el jardín.</div>
+          <div class="evento-hora">🕗 09:00 – 11:00 hrs</div>
+        </div>
+      </div>
+
+      <div class="evento-item" data-mes="may">
+        <div class="evento-fecha"><div class="evento-dia">21</div><div class="evento-mes">May</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🇨🇱 Feriado</div>
+          <div class="evento-titulo">Glorias Navales — Sin clases</div>
+          <div class="evento-desc">No hay actividades escolares. Se retoman clases el día siguiente.</div>
+        </div>
+      </div>
+
+      <div class="evento-item orange" data-mes="may">
+        <div class="evento-fecha"><div class="evento-dia">28</div><div class="evento-mes">May</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">👨‍👩‍👧 Reunión de apoderados</div>
+          <div class="evento-titulo">Reunión 2° trimestre</div>
+          <div class="evento-desc">Informe de avances individuales, retroalimentación fonoaudiológica y orientaciones para el hogar.</div>
+          <div class="evento-hora">🕑 14:00 hrs — Sala multiuso</div>
+        </div>
+      </div>
+
+      <div class="evento-item yellow" data-mes="jun">
+        <div class="evento-fecha"><div class="evento-dia">27</div><div class="evento-mes">Jun</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🎭 Acto escolar</div>
+          <div class="evento-titulo">Acto por San Pedro y San Pablo</div>
+          <div class="evento-desc">Presentación de los niños con canciones y poesías. Se invita a todas las familias.</div>
+          <div class="evento-hora">🕙 10:00 hrs — Patio central</div>
+        </div>
+      </div>
+
+      <div class="evento-item sky" data-mes="jul">
+        <div class="evento-fecha"><div class="evento-dia">11</div><div class="evento-mes">Jul</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🏖️ Vacaciones</div>
+          <div class="evento-titulo">Inicio vacaciones de invierno</div>
+          <div class="evento-desc">Dos semanas de receso escolar. Regreso a clases el lunes 28 de julio.</div>
+        </div>
+      </div>
+
+      <div class="evento-item" data-mes="ago">
+        <div class="evento-fecha"><div class="evento-dia">06</div><div class="evento-mes">Ago</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🧪 Taller</div>
+          <div class="evento-titulo">Taller para apoderados: estimulación en casa</div>
+          <div class="evento-desc">Técnicas y actividades para reforzar el lenguaje en el hogar, guiado por la fonoaudióloga.</div>
+          <div class="evento-hora">🕑 15:00 hrs — Sala multiuso</div>
+        </div>
+      </div>
+
+      <div class="evento-item yellow" data-mes="sep">
+        <div class="evento-fecha"><div class="evento-dia">17</div><div class="evento-mes">Sep</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🎭 Acto escolar</div>
+          <div class="evento-titulo">Acto de Fiestas Patrias</div>
+          <div class="evento-desc">Celebración de la chilenidad con baile, disfraz típico y comida tradicional. ¡Familias bienvenidas!</div>
+          <div class="evento-hora">🕙 10:00 hrs — Patio central</div>
+        </div>
+      </div>
+
+      <div class="evento-item orange" data-mes="oct">
+        <div class="evento-fecha"><div class="evento-dia">15</div><div class="evento-mes">Oct</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">👨‍👩‍👧 Reunión de apoderados</div>
+          <div class="evento-titulo">Reunión 3° trimestre</div>
+          <div class="evento-desc">Evaluación de avances, planificación del cierre de año y proceso de continuidad.</div>
+          <div class="evento-hora">🕑 14:00 hrs — Sala multiuso</div>
+        </div>
+      </div>
+
+      <div class="evento-item sky" data-mes="nov">
+        <div class="evento-fecha"><div class="evento-dia">05</div><div class="evento-mes">Nov</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">📋 Matrículas</div>
+          <div class="evento-titulo">Apertura matrículas 2026</div>
+          <div class="evento-desc">Inicio del proceso de matrícula para el año escolar 2026. Cupos limitados.</div>
+          <div class="evento-hora">🕗 A partir de las 08:30 hrs — Secretaría</div>
+        </div>
+      </div>
+
+      <div class="evento-item yellow" data-mes="dic">
+        <div class="evento-fecha"><div class="evento-dia">05</div><div class="evento-mes">Dic</div></div>
+        <div class="evento-body">
+          <div class="evento-tipo">🎓 Acto de cierre</div>
+          <div class="evento-titulo">Graduación y cierre año escolar 2025</div>
+          <div class="evento-desc">Ceremonia de egreso para niños que pasan a educación básica. Familias y apoderados invitados.</div>
+          <div class="evento-hora">🕙 10:30 hrs — Patio central</div>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <footer>
-    <p>&copy; 2026 Escuela Tecnológica. Todos los derechos reservados.</p>
-  </footer>
+<footer>
+  <div class="footer-logo">Escuela de Lenguaje <span>Tecnológica</span></div>
+  <div class="footer-links">
+    <a href="escuela-tecnologica.html">Inicio</a>
+    <a href="escuela-tecnologica.html#sobre">Sobre Nosotros</a>
+    <a href="cronograma.html">Cronograma</a>
+    <a href="galeria.html">Galería</a>
+    <a href="escuela-tecnologica.html#contacto">Contacto</a>
+  </div>
+  <p class="footer-copy">© 2025 Escuela Especial de Lenguaje Tecnológica. Todos los derechos reservados.</p>
+</footer>
 
+<a href="https://wa.me/56963039214?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20la%20matrícula."
+   target="_blank" class="whatsapp-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+  document.addEventListener('click',function(e){
+    const m=document.getElementById('mobileMenu'),b=document.querySelector('.hamburger');
+    if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');
+  });
+
+  function filtrarMes(mes, btn) {
+    document.querySelectorAll('.mes-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const items = document.querySelectorAll('.evento-item');
+    let visible = 0;
+    items.forEach(item => {
+      if(mes==='todos'||item.dataset.mes===mes){item.style.display='flex';visible++;}
+      else item.style.display='none';
+    });
+    const lista = document.getElementById('eventosList');
+    let noEvt = lista.querySelector('.no-eventos');
+    if(visible===0){
+      if(!noEvt){
+        noEvt=document.createElement('div');noEvt.className='no-eventos';
+        noEvt.innerHTML='<span>📭</span>No hay eventos programados para este mes.';
+        lista.appendChild(noEvt);
+      }
+    } else if(noEvt) noEvt.remove();
+  }
+</script>
 </body>
 </html>
