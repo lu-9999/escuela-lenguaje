@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sobre Nosotros — Escuela de Lenguaje Tecnológica</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-  <style>
+  <style><style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{
       --green:#7EC8A4;--green-d:#5aaa83;--green-light:#B8E4D0;--green-pale:#E8F7F1;
@@ -21,15 +21,22 @@
     body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);line-height:1.7;}
 
     /* ── NAV ── */
-    /* ── NAV LOGO ── */
-    .nav-logo{display:flex;align-items:center;text-decoration:none;}
-    .nav-logo-img{height:54px;width:auto;object-fit:contain;}
+        /* ── NAV LOGO ── */
+    
+    
+    /* remove leftover old rules if any */
+    
+    
+    .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+    .nav-logo-img{height:52px;width:auto;object-fit:contain;display:block;}
+    .nav-logo-icon{display:none;}
+    .nav-logo-text{display:none;}
 
     nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:2px solid var(--green-light);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
-    .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-    .nav-logo-icon{width:42px;height:42px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;}
-    .nav-logo-text{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--text);line-height:1.2;}
-    .nav-logo-text span{color:var(--green);}
+    
+    
+    
+    
     .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
     .nav-links a{text-decoration:none;color:var(--gray-600);font-weight:600;font-size:.9rem;transition:color .2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--green);}
@@ -231,15 +238,6 @@
     }
     .btn-outline:hover{background:var(--green-pale);transform:translateY(-2px);}
 
-    /* ── FOOTER ── */
-    footer{background:var(--text);color:rgba(255,255,255,.75);padding:2.5rem 2rem 2rem;text-align:center;}
-    .footer-logo{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:.6rem;}
-    .footer-logo span{color:var(--green-light);}
-    .footer-links{display:flex;gap:1.2rem;justify-content:center;margin:.8rem 0;flex-wrap:wrap;}
-    .footer-links a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .2s;}
-    .footer-links a:hover{color:var(--green-light);}
-    .footer-copy{font-size:.78rem;color:rgba(255,255,255,.35);margin-top:.8rem;}
-
     /* ── WHATSAPP ── */
     .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:200;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s;animation:pulse 2s infinite;}
     .whatsapp-float:hover{transform:scale(1.1);}
@@ -257,6 +255,48 @@
       .filo-grid,.met-grid{grid-template-columns:1fr;}
       .decreto-badges{flex-direction:column;align-items:center;}
     }
+    }
+    }
+    }
+    }
+
+    /* ── TOPBAR ── */
+    .topbar{background:#5B8FCC;color:rgba(255,255,255,.92);font-size:.78rem;padding:0 1.4rem;height:36px;display:flex;align-items:center;justify-content:space-between;gap:1rem;overflow:hidden;}
+    .topbar-left{display:flex;align-items:center;gap:1.1rem;overflow:hidden;min-width:0;}
+    .topbar-item{display:flex;align-items:center;gap:.35rem;white-space:nowrap;flex-shrink:0;}
+    .topbar-item a{color:rgba(255,255,255,.92);text-decoration:none;transition:color .2s;}
+    .topbar-item a:hover{color:#fff;}
+    .topbar-right{flex-shrink:0;}
+    .topbar-social a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.75rem;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
+    .topbar-social a:hover{color:#fff;}
+
+    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
+    
+    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
+    .footer-links a:hover{color:#fff;}
+    
+    
+    
+    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
+    .footer-social a:hover{background:rgba(255,255,255,.38);}
+
+    @media(max-width:1020px){.topbar-item:nth-child(4){display:none;}}
+    @media(max-width:800px){.topbar-item:nth-child(3){display:none;}}
+    @media(max-width:600px){.topbar-item:nth-child(2){display:none;}}
+    @media(max-width:440px){.topbar{font-size:.72rem;padding:0 .8rem;gap:.5rem;}}
+
+    /* ── FOOTER ── */
+    footer{background:#5B8FCC;color:rgba(255,255,255,.92);padding:3rem 2rem 2rem;text-align:center;}
+    .footer-logo-img{height:70px;width:auto;object-fit:contain;margin:0 auto 1rem;display:block;}
+    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
+    .footer-links{display:flex;gap:1.5rem;justify-content:center;margin:1.2rem 0;flex-wrap:wrap;}
+    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
+    .footer-links a:hover{color:#fff;}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,.22);margin:1.5rem auto;max-width:400px;}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,.55);}
+    .footer-social{display:flex;gap:1rem;justify-content:center;margin-top:1rem;}
+    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
+    .footer-social a:hover{background:rgba(255,255,255,.38);}
   </style>
 </head>
 <body>
