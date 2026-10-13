@@ -4,308 +4,174 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sobre Nosotros — Escuela de Lenguaje Tecnológica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-  <style><style>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{
-      --green:#7EC8A4;--green-d:#5aaa83;--green-light:#B8E4D0;--green-pale:#E8F7F1;
-      --orange:#F4A96A;--orange-pale:#FEF3E8;
-      --sky:#7AC4DC;--sky-pale:#E5F5FB;
-      --yellow:#F6D15E;--yellow-pale:#FEFAE8;
-      --white:#FFFFFF;--gray-50:#F9FAFB;--gray-100:#F1F3F5;
-      --gray-200:#E5E7EB;--gray-300:#D1D5DB;--gray-400:#9CA3AF;
-      --gray-600:#4B5563;--text:#2D3A4A;
-      --radius:14px;--radius-lg:22px;
+      --g:#7EC8A4;--g2:#5aaa83;--gp:#E8F7F1;--gl:#B8E4D0;
+      --o:#F4A96A;--op:#FEF3E8;
+      --s:#7AC4DC;--sp:#E5F5FB;
+      --y:#F6D15E;--yp:#FEFAE8;
+      --w:#fff;--gray:#F7F8FA;--g100:#F0F2F5;--g300:#D1D5DB;
+      --g400:#9CA3AF;--g600:#4B5563;--text:#1E2B3A;
+      --r:12px;--rl:20px;
     }
     html{scroll-behavior:smooth;}
-    body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);line-height:1.7;}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--w);line-height:1.7;-webkit-font-smoothing:antialiased;}
 
-    /* ── NAV ── */
-        /* ── NAV LOGO ── */
-    
-    
-    /* remove leftover old rules if any */
-    
-    
+    /* NAV */
     .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-    .nav-logo-img{height:52px;width:auto;object-fit:contain;display:block;}
-    .nav-logo-icon{display:none;}
-    .nav-logo-text{display:none;}
-
-    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:2px solid var(--green-light);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
-    
-    
-    
-    
-    .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
-    .nav-links a{text-decoration:none;color:var(--gray-600);font-weight:600;font-size:.9rem;transition:color .2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--green);}
-    .nav-cta{background:var(--orange);color:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;padding:.55rem 1.2rem;border-radius:30px;text-decoration:none;transition:background .2s,transform .15s;}
+    .nav-logo-img{height:50px;width:auto;object-fit:contain;display:block;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--g100);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{text-decoration:none;color:var(--g600);font-weight:500;font-size:.88rem;transition:color .18s;white-space:nowrap;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--g);transform:scaleX(0);transition:transform .2s;border-radius:2px;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{background:var(--o);color:var(--w);font-family:'Nunito',sans-serif;font-weight:800;font-size:.84rem;padding:.48rem 1.2rem;border-radius:30px;text-decoration:none;transition:background .18s,transform .15s;white-space:nowrap;flex-shrink:0;}
     .nav-cta:hover{background:#e8944f;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
     .mobile-menu{display:none;}
-
-    /* ── HERO ── */
-    .hero{
-      position:relative;overflow:hidden;
-      background:linear-gradient(150deg,var(--green-pale) 0%,var(--sky-pale) 55%,var(--yellow-pale) 100%);
-      padding:72px 2rem 56px;
-    }
-    .hero-deco{
-      position:absolute;inset:0;pointer-events:none;
-    }
-    .hero-deco-circle{
-      position:absolute;border-radius:50%;
-    }
-    .hdc1{width:320px;height:320px;background:var(--green-light);opacity:.22;top:-80px;right:-60px;}
-    .hdc2{width:200px;height:200px;background:var(--orange);opacity:.13;bottom:-40px;left:5%;}
-    .hdc3{width:120px;height:120px;background:var(--sky);opacity:.18;top:30%;right:20%;}
-
-    .hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center;}
-    .hero-eyebrow{
-      display:inline-flex;align-items:center;gap:.5rem;
-      background:var(--white);border:2px solid var(--green-light);
-      border-radius:30px;padding:.35rem 1rem;
-      font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;
-      letter-spacing:.05em;text-transform:uppercase;color:var(--green);
-      margin-bottom:1.4rem;
-      box-shadow:0 2px 12px rgba(126,200,164,.18);
-    }
-    .hero h1{
-      font-family:'Nunito',sans-serif;font-weight:900;
-      font-size:clamp(2rem,5vw,3.4rem);color:var(--text);line-height:1.1;
-      margin-bottom:1.2rem;
-    }
-    .hero h1 em{font-style:normal;color:var(--green);}
-    .hero-sub{font-size:1.1rem;color:var(--gray-600);max-width:580px;margin:0 auto 2rem;}
-
-    /* address pill */
-    .hero-address{
-      display:inline-flex;align-items:center;gap:.6rem;
-      background:var(--white);border-radius:30px;
-      padding:.5rem 1.2rem;font-size:.9rem;color:var(--gray-600);
-      box-shadow:0 2px 12px rgba(0,0,0,.07);
-      font-weight:600;
-    }
-    .hero-address span{color:var(--green);font-size:1.1rem;}
-
-    /* ── SECTIONS COMMON ── */
-    .container{max-width:1080px;margin:0 auto;}
-    section{padding:68px 2rem;}
-    .eyebrow{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem;}
-    .section-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--text);line-height:1.2;margin-bottom:1rem;}
-
-    /* ── VISION / MISION ── */
-    #filosofia{background:var(--white);}
-    .filo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
-    .filo-card{
-      border-radius:var(--radius-lg);padding:2.2rem 2rem;
-      position:relative;overflow:hidden;
-    }
-    .filo-card.vision{background:linear-gradient(135deg,var(--green-pale),var(--sky-pale));}
-    .filo-card.mision{background:linear-gradient(135deg,var(--orange-pale),var(--yellow-pale));}
-    .filo-card-icon{font-size:2.4rem;margin-bottom:1rem;display:block;}
-    .filo-card h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);margin-bottom:.8rem;}
-    .filo-card p{font-size:.95rem;color:var(--gray-600);line-height:1.75;}
-    .filo-card::after{
-      content:'';position:absolute;bottom:-30px;right:-30px;
-      width:110px;height:110px;border-radius:50%;opacity:.12;
-    }
-    .filo-card.vision::after{background:var(--green);}
-    .filo-card.mision::after{background:var(--orange);}
-
-    /* ── METODOLOGIA ── */
-    #metodologia{background:var(--gray-50);}
-    .met-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;}
-
-    .met-pillars{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
-    .pillar{
-      display:flex;align-items:flex-start;gap:1rem;
-      background:var(--white);border-radius:var(--radius);padding:1rem 1.2rem;
-      border-left:4px solid var(--green);
-      box-shadow:0 1px 8px rgba(0,0,0,.05);
-      transition:box-shadow .2s,transform .2s;
-    }
-    .pillar:hover{box-shadow:0 4px 18px rgba(0,0,0,.09);transform:translateX(3px);}
-    .pillar:nth-child(2){border-left-color:var(--sky);}
-    .pillar:nth-child(3){border-left-color:var(--orange);}
-    .pillar:nth-child(4){border-left-color:var(--yellow);}
-    .pillar-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
-    .pillar h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);}
-    .pillar p{font-size:.87rem;color:var(--gray-600);margin-top:.2rem;}
-
-    /* ── EQUIPO ── */
-    #equipo{background:var(--white);}
-    .equipo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.4rem;}
-    .miembro{
-      background:var(--gray-50);border-radius:var(--radius-lg);padding:1.8rem 1.4rem;
-      text-align:center;border:2px solid var(--gray-100);
-      transition:border-color .2s,box-shadow .2s,transform .2s;
-    }
-    .miembro:hover{border-color:var(--green-light);box-shadow:0 6px 22px rgba(0,0,0,.09);transform:translateY(-4px);}
-    .miembro-avatar{
-      width:64px;height:64px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.8rem;margin:0 auto 1rem;
-    }
-    .av-green{background:var(--green-pale);}
-    .av-orange{background:var(--orange-pale);}
-    .av-sky{background:var(--sky-pale);}
-    .av-yellow{background:var(--yellow-pale);}
-    .miembro h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;color:var(--text);margin-bottom:.3rem;}
-    .miembro-cargo{font-size:.82rem;font-weight:700;font-family:'Nunito',sans-serif;color:var(--green);margin-bottom:.3rem;}
-    .miembro-horas{font-size:.78rem;color:var(--gray-400);display:inline-block;background:var(--gray-100);border-radius:20px;padding:.15rem .6rem;}
-
-    /* ── VALORES ── */
-    #valores{background:linear-gradient(160deg,var(--sky-pale) 0%,var(--green-pale) 100%);}
-    .valores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;}
-    .valor-card{
-      background:var(--white);border-radius:var(--radius-lg);padding:1.8rem 1.6rem;
-      box-shadow:0 2px 12px rgba(0,0,0,.06);
-      transition:transform .2s,box-shadow .2s;
-    }
-    .valor-card:hover{transform:translateY(-4px);box-shadow:0 8px 26px rgba(0,0,0,.11);}
-    .valor-num{
-      font-family:'Nunito',sans-serif;font-weight:900;font-size:2.4rem;
-      line-height:1;color:var(--green-light);margin-bottom:.6rem;
-    }
-    .valor-card:nth-child(2) .valor-num{color:var(--orange-pale);}
-    .valor-card:nth-child(3) .valor-num{color:var(--sky-light);}
-    .valor-card:nth-child(4) .valor-num{color:var(--yellow-light);}
-    .valor-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--text);margin-bottom:.5rem;}
-    .valor-card p{font-size:.88rem;color:var(--gray-600);line-height:1.65;}
-    .valor-icon{font-size:1.7rem;margin-bottom:.7rem;display:block;}
-
-    /* ── INFRAESTRUCTURA ── */
-    #infraestructura{background:var(--white);}
-    .infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;}
-    .infra-item{
-      display:flex;flex-direction:column;align-items:center;text-align:center;
-      background:var(--gray-50);border-radius:var(--radius-lg);padding:1.6rem 1.2rem;
-      border:2px solid var(--gray-100);
-      transition:border-color .2s,box-shadow .2s;
-    }
-    .infra-item:hover{border-color:var(--green-light);box-shadow:0 4px 16px rgba(0,0,0,.07);}
-    .infra-icon{font-size:2.2rem;margin-bottom:.8rem;}
-    .infra-item h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:.3rem;}
-    .infra-item p{font-size:.82rem;color:var(--gray-600);}
-
-    /* ── DECRETO ── */
-    #decreto{background:var(--orange-pale);}
-    .decreto-inner{
-      max-width:780px;margin:0 auto;text-align:center;
-    }
-    .decreto-badges{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
-    .decreto-badge{
-      background:var(--white);border-radius:var(--radius-lg);padding:1.2rem 1.8rem;
-      box-shadow:0 2px 14px rgba(0,0,0,.08);text-align:center;min-width:160px;
-      border-top:4px solid var(--orange);
-    }
-    .decreto-badge:nth-child(2){border-top-color:var(--green);}
-    .decreto-badge:nth-child(3){border-top-color:var(--sky);}
-    .decreto-num{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.6rem;color:var(--text);}
-    .decreto-label{font-size:.8rem;color:var(--gray-600);margin-top:.3rem;}
-
-    /* ── CTA ── */
-    #cta-section{background:linear-gradient(135deg,var(--green-pale),var(--sky-pale));}
-    .cta-inner{max-width:640px;margin:0 auto;text-align:center;}
-    .cta-inner h2{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);margin-bottom:1rem;}
-    .cta-inner p{color:var(--gray-600);margin-bottom:2rem;font-size:1.05rem;}
-    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-    .btn-main{
-      background:var(--green);color:var(--white);
-      font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;
-      padding:.85rem 2rem;border-radius:30px;text-decoration:none;
-      box-shadow:0 4px 14px rgba(126,200,164,.4);
-      transition:background .2s,transform .15s;
-    }
-    .btn-main:hover{background:var(--green-d);transform:translateY(-2px);}
-    .btn-outline{
-      background:var(--white);color:var(--green);
-      font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;
-      padding:.85rem 2rem;border-radius:30px;text-decoration:none;
-      border:2px solid var(--green);
-      transition:background .2s,transform .15s;
-    }
-    .btn-outline:hover{background:var(--green-pale);transform:translateY(-2px);}
-
-    /* ── WHATSAPP ── */
-    .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:200;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s;animation:pulse 2s infinite;}
-    .whatsapp-float:hover{transform:scale(1.1);}
-    .whatsapp-float svg{width:26px;height:26px;fill:white;}
-    @keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)}50%{box-shadow:0 4px 30px rgba(37,211,102,.75)}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links,.nav-cta{display:none;}
       .hamburger{display:flex;}
-      .mobile-menu{position:fixed;top:70px;left:0;right:0;background:var(--white);padding:1.5rem 2rem;box-shadow:0 8px 24px rgba(0,0,0,.12);flex-direction:column;gap:1.2rem;z-index:99;}
+      .mobile-menu{position:fixed;top:68px;left:0;right:0;background:var(--w);padding:1.5rem 2rem;box-shadow:0 12px 32px rgba(0,0,0,.1);flex-direction:column;gap:1rem;z-index:99;border-top:1px solid var(--g100);}
       .mobile-menu.open{display:flex;}
-      .mobile-menu a{text-decoration:none;color:var(--text);font-weight:600;font-size:1rem;padding:.5rem 0;border-bottom:1px solid var(--gray-100);}
-      .mobile-menu .mob-cta{background:var(--orange);color:var(--white)!important;border:none!important;text-align:center;padding:.75rem!important;border-radius:30px;font-family:'Nunito',sans-serif;}
-      .filo-grid,.met-grid{grid-template-columns:1fr;}
-      .decreto-badges{flex-direction:column;align-items:center;}
-    }
-    }
-    }
-    }
+      .mobile-menu a{text-decoration:none;color:var(--text);font-weight:500;font-size:1rem;padding:.6rem 0;border-bottom:1px solid var(--g100);}
+      .mobile-menu .mob-cta{background:var(--o);color:var(--w)!important;border:none!important;text-align:center;padding:.75rem!important;border-radius:30px;font-family:'Nunito',sans-serif;font-weight:800;margin-top:.3rem;}
     }
 
-    /* ── TOPBAR ── */
-    .topbar{background:#5B8FCC;color:rgba(255,255,255,.92);font-size:.78rem;padding:0 1.4rem;height:36px;display:flex;align-items:center;justify-content:space-between;gap:1rem;overflow:hidden;}
-    .topbar-left{display:flex;align-items:center;gap:1.1rem;overflow:hidden;min-width:0;}
-    .topbar-item{display:flex;align-items:center;gap:.35rem;white-space:nowrap;flex-shrink:0;}
-    .topbar-item a{color:rgba(255,255,255,.92);text-decoration:none;transition:color .2s;}
-    .topbar-item a:hover{color:#fff;}
-    .topbar-right{flex-shrink:0;}
-    .topbar-social a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.75rem;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
-    .topbar-social a:hover{color:#fff;}
+    /* PAGE HERO */
+    .page-hero{background:linear-gradient(135deg,var(--sp) 0%,var(--gp) 100%);padding:72px 2rem 60px;position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;bottom:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,var(--gl) 0%,transparent 70%);opacity:.4;}
+    .ph-inner{max-width:680px;position:relative;z-index:1;}
+    .tag{display:inline-block;background:var(--gp);color:var(--g2);font-size:.72rem;font-weight:600;padding:.28rem .75rem;border-radius:20px;margin-bottom:.9rem;letter-spacing:.02em;border:1px solid var(--gl);}
+    .tag.o{background:var(--op);color:#c07030;border-color:var(--o);}
+    .tag.s{background:var(--sp);color:#3a8aaa;border-color:var(--s);}
+    .page-hero h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.2rem);color:var(--text);line-height:1.1;margin-bottom:1rem;}
+    .page-hero h1 strong{color:var(--g2);}
+    .page-hero p{color:var(--g600);font-size:1rem;max-width:520px;line-height:1.75;}
+    .ph-addr{display:inline-flex;align-items:center;gap:.5rem;background:var(--w);border-radius:30px;padding:.45rem 1.1rem;font-size:.86rem;color:var(--g600);box-shadow:0 2px 10px rgba(0,0,0,.07);margin-top:1.4rem;font-weight:500;}
 
-    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
-    
-    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
-    .footer-links a:hover{color:#fff;}
-    
-    
-    
-    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
-    .footer-social a:hover{background:rgba(255,255,255,.38);}
+    /* SHARED */
+    .container{max-width:1080px;margin:0 auto;}
+    section{padding:80px 2rem;}
+    h2.sh{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);line-height:1.15;margin-bottom:.8rem;}
+    .sub{color:var(--g600);font-size:.97rem;line-height:1.7;}
 
-    @media(max-width:1020px){.topbar-item:nth-child(4){display:none;}}
-    @media(max-width:800px){.topbar-item:nth-child(3){display:none;}}
-    @media(max-width:600px){.topbar-item:nth-child(2){display:none;}}
-    @media(max-width:440px){.topbar{font-size:.72rem;padding:0 .8rem;gap:.5rem;}}
+    /* FILOSOFIA */
+    #filosofia{background:var(--w);}
+    .filo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+    .filo-card{border-radius:var(--rl);padding:2.2rem 2rem;position:relative;overflow:hidden;}
+    .filo-card.vision{background:linear-gradient(135deg,var(--gp),var(--sp));}
+    .filo-card.mision{background:linear-gradient(135deg,var(--op),var(--yp));}
+    .filo-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+    .filo-card h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);margin-bottom:.7rem;}
+    .filo-card p{font-size:.92rem;color:var(--g600);line-height:1.75;}
+    @media(max-width:640px){.filo-grid{grid-template-columns:1fr;}}
 
-    /* ── FOOTER ── */
-    footer{background:#5B8FCC;color:rgba(255,255,255,.92);padding:3rem 2rem 2rem;text-align:center;}
-    .footer-logo-img{height:70px;width:auto;object-fit:contain;margin:0 auto 1rem;display:block;}
-    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
-    .footer-links{display:flex;gap:1.5rem;justify-content:center;margin:1.2rem 0;flex-wrap:wrap;}
-    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
-    .footer-links a:hover{color:#fff;}
-    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,.22);margin:1.5rem auto;max-width:400px;}
-    .footer-copy{font-size:.8rem;color:rgba(255,255,255,.55);}
-    .footer-social{display:flex;gap:1rem;justify-content:center;margin-top:1rem;}
-    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
-    .footer-social a:hover{background:rgba(255,255,255,.38);}
+    /* METODOLOGIA */
+    #metodologia{background:var(--gray);}
+    .met-content{max-width:760px;}
+    .met-content p{color:var(--g600);font-size:.95rem;margin-bottom:1rem;line-height:1.75;}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem;}
+    .pillar{background:var(--w);border-radius:var(--r);padding:1.2rem 1.3rem;display:flex;align-items:flex-start;gap:.9rem;transition:box-shadow .2s;}
+    .pillar:hover{box-shadow:0 4px 16px rgba(0,0,0,.07);}
+    .pillar:nth-child(1){border-left:3px solid var(--g);}
+    .pillar:nth-child(2){border-left:3px solid var(--o);}
+    .pillar:nth-child(3){border-left:3px solid var(--s);}
+    .pillar:nth-child(4){border-left:3px solid var(--y);}
+    .p-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+    .pillar h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);}
+    .pillar p{font-size:.84rem;color:var(--g600);margin-top:.2rem;margin-bottom:0;}
+    @media(max-width:600px){.pillars{grid-template-columns:1fr;}}
+
+    /* EQUIPO */
+    #equipo{background:var(--w);}
+    .prep-card{background:var(--gray);border-radius:var(--rl);padding:3rem;text-align:center;border:2px dashed var(--g300);max-width:400px;margin:0 auto;}
+    .prep-card span{font-size:3rem;display:block;margin-bottom:1rem;}
+    .prep-card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);margin-bottom:.5rem;}
+    .prep-card p{font-size:.9rem;color:var(--g400);}
+
+    /* VALORES */
+    #valores{background:linear-gradient(160deg,var(--sp) 0%,var(--gp) 100%);}
+    .val-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;}
+    .vc{background:var(--w);border-radius:var(--rl);padding:1.8rem;transition:box-shadow .2s,transform .2s;}
+    .vc:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px);}
+    .vc-icon{font-size:1.8rem;margin-bottom:.7rem;display:block;}
+    .vc h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;color:var(--text);margin-bottom:.4rem;}
+    .vc p{font-size:.88rem;color:var(--g600);line-height:1.65;}
+    @media(max-width:600px){.val-grid{grid-template-columns:1fr;}}
+
+    /* INFRAESTRUCTURA */
+    #infraestructura{background:var(--w);}
+    .infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.1rem;}
+    .ii{background:var(--gray);border-radius:var(--rl);padding:1.6rem 1.3rem;text-align:center;transition:box-shadow .2s,transform .2s;border-bottom:3px solid var(--g);}
+    .ii:nth-child(2){border-bottom-color:var(--o);}
+    .ii:nth-child(3){border-bottom-color:var(--s);}
+    .ii:nth-child(4){border-bottom-color:var(--y);}
+    .ii:nth-child(5){border-bottom-color:var(--g);}
+    .ii:hover{box-shadow:0 6px 20px rgba(0,0,0,.07);transform:translateY(-3px);}
+    .ii-icon{font-size:2rem;margin-bottom:.7rem;display:block;}
+    .ii h4{font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:.3rem;}
+    .ii p{font-size:.82rem;color:var(--g600);}
+
+    /* DECRETO */
+    #decreto{background:var(--op);}
+    .dec-inner{max-width:800px;margin:0 auto;text-align:center;}
+    .dec-grid{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;}
+    .db{background:var(--w);border-radius:var(--rl);padding:1.4rem 2rem;text-align:center;min-width:170px;flex:1;border-top:4px solid var(--o);box-shadow:0 2px 12px rgba(0,0,0,.07);}
+    .db:nth-child(2){border-top-color:var(--g);}
+    .db:nth-child(3){border-top-color:var(--s);}
+    .db-num{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.5rem;color:var(--text);}
+    .db-label{font-size:.8rem;color:var(--g600);margin-top:.4rem;line-height:1.5;}
+
+    /* CTA */
+    #cta-section{background:linear-gradient(135deg,var(--gp),var(--sp));}
+    .cta-box{max-width:620px;margin:0 auto;text-align:center;}
+    .cta-box h2{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);margin-bottom:.9rem;}
+    .cta-box p{color:var(--g600);margin-bottom:2rem;font-size:.97rem;}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-p{background:var(--g);color:var(--w);font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;padding:.78rem 1.8rem;border-radius:30px;text-decoration:none;transition:background .18s,transform .15s;box-shadow:0 4px 18px rgba(126,200,164,.4);}
+    .btn-p:hover{background:var(--g2);transform:translateY(-2px);}
+    .btn-o{background:var(--w);color:var(--g2);font-family:'Nunito',sans-serif;font-weight:700;font-size:.95rem;padding:.78rem 1.8rem;border-radius:30px;text-decoration:none;border:2px solid var(--g);transition:background .18s,transform .15s;}
+    .btn-o:hover{background:var(--gp);transform:translateY(-2px);}
+
+    /* FOOTER */
+    footer{background:#3A6FAF;color:rgba(255,255,255,.88);padding:3rem 2rem 2rem;text-align:center;}
+    .foot-logo{height:66px;object-fit:contain;margin:0 auto .9rem;display:block;}
+    footer p{font-size:.86rem;margin-bottom:.35rem;color:rgba(255,255,255,.78);}
+    .foot-links{display:flex;gap:1.4rem;justify-content:center;margin:1.1rem 0;flex-wrap:wrap;}
+    .foot-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.86rem;transition:color .18s;}
+    .foot-links a:hover{color:#fff;}
+    .foot-hr{border:none;border-top:1px solid rgba(255,255,255,.18);margin:1.4rem auto;max-width:360px;}
+    .foot-copy{font-size:.76rem;color:rgba(255,255,255,.45);}
+    .foot-social{display:flex;gap:.9rem;justify-content:center;margin-top:.9rem;}
+    .foot-social a{width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .18s;}
+    .foot-social a:hover{background:rgba(255,255,255,.35);}
+
+    /* WHATSAPP */
+    .wa{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;}
+    .wa:hover{transform:scale(1.08);}
+    .wa svg{width:27px;height:27px;fill:white;}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-    <a href="index.html" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="nav-logo-img"/>
   </a>
-    <ul class="nav-links">
+  <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="sobre-nosotros.html" class="active">Sobre Nosotros</a></li>
     <li><a href="cronograma.html">Cronograma</a></li>
     <li><a href="galeria.html">Galería</a></li>
   </ul>
   <a href="index.html#contacto" class="nav-cta">Inscribir a mi hijo/a</a>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -319,39 +185,32 @@
 </div>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-deco">
-    <div class="hero-deco-circle hdc1"></div>
-    <div class="hero-deco-circle hdc2"></div>
-    <div class="hero-deco-circle hdc3"></div>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">🏫 Proyecto Educativo Institucional</div>
-    <h1>Una escuela con <em>propósito</em><br>y corazón</h1>
-    <p class="hero-sub">Conoce quiénes somos, qué nos mueve y cómo trabajamos cada día para que los niños y niñas de Puerto Varas <strong>encuentren su voz</strong>.</p>
-    <div class="hero-address">
-      <span>📍</span> Del Rosario N°4, Puerto Varas — X Región de Los Lagos
-    </div>
+<div class="page-hero">
+  <div class="ph-inner">
+    <span class="tag">Proyecto Educativo Institucional</span>
+    <h1>Una escuela con<br><strong>propósito y corazón</strong></h1>
+    <p>Conoce quiénes somos, qué nos mueve y cómo trabajamos cada día para que los niños y niñas de Puerto Varas encuentren su voz.</p>
+    <div class="ph-addr">📍 Del Rosario N°4, Puerto Varas — X Región de Los Lagos</div>
   </div>
 </div>
 
 <!-- VISION Y MISION -->
 <section id="filosofia">
   <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;">
-      <div class="eyebrow">Nuestra identidad</div>
-      <h2 class="section-title" style="margin:0 auto;">Lo que nos define como comunidad</h2>
+    <div style="text-align:center;margin-bottom:2.4rem;">
+      <span class="tag">Nuestra identidad</span>
+      <h2 class="sh" style="margin:0 auto .6rem;">Lo que nos define como comunidad</h2>
     </div>
     <div class="filo-grid">
       <div class="filo-card vision">
-        <span class="filo-card-icon">🌟</span>
+        <span class="filo-icon">🌟</span>
         <h3>Visión</h3>
         <p>Formar niños y niñas íntegros, autónomos, respetuosos de la diversidad e igualdad, con un gran espíritu solidario y de superación. Que sean capaces de valorarse a sí mismos y a los demás, inculcando en ellos el principio de igualdad.</p>
       </div>
       <div class="filo-card mision">
-        <span class="filo-card-icon">🎯</span>
+        <span class="filo-icon">🎯</span>
         <h3>Misión</h3>
-        <p>Ser un instrumento para superar dificultades específicas del lenguaje a través de la tecnología y metodologías innovadoras en el campo de las necesidades educativas especiales, logrando que nuestros alumnos y alumnas se integren exitosamente a la educación formal.</p>
+        <p>Ser un instrumento para superar dificultades específicas del lenguaje a través de la tecnología y metodologías innovadoras, logrando que nuestros alumnos y alumnas se integren exitosamente a la educación formal.</p>
       </div>
     </div>
   </div>
@@ -360,87 +219,49 @@
 <!-- METODOLOGIA -->
 <section id="metodologia">
   <div class="container">
-    <div class="met-grid" style="grid-template-columns:1fr;max-width:720px;">
-      <div>
-        <div class="eyebrow">Cómo enseñamos</div>
-        <h2 class="section-title">Metodología basada en el hacer</h2>
-        <p style="color:var(--gray-600);margin-bottom:1rem;">El plan de estudio combina las matrices curriculares de la educación parvularia con un plan específico diseñado por la fonoaudióloga y la educadora especialista, orientado a superar las dificultades del lenguaje de cada niño/a.</p>
-        <p style="color:var(--gray-600);margin-bottom:1.5rem;">Nuestro enfoque pedagógico se basa en el <strong>constructivismo</strong>: el niño aprende haciendo. Además contamos con una sala de computación como apoyo al aprendizaje.</p>
-        <div class="met-pillars">
-          <div class="pillar">
-            <div class="pillar-icon">💻</div>
-            <div><h4>Tecnología como herramienta</h4><p>Sala de computación integrada al plan diario, potenciando el aprendizaje del lenguaje de forma interactiva.</p></div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">🎨</div>
-            <div><h4>Expresión artística</h4><p>Talleres artísticos que desarrollan la creatividad, la comunicación no verbal y la autoexpresión.</p></div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">👨‍👩‍👧</div>
-            <div><h4>Familia integrada</h4><p>Los apoderados participan activamente del proceso educativo a través de talleres, jornadas y reuniones.</p></div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">📊</div>
-            <div><h4>Evaluación semestral</h4><p>Evaluaciones formativas y sumativas en plan general y específico, con seguimiento individual de cada niño/a.</p></div>
-          </div>
-        </div>
-      </div>
+    <span class="tag s">Cómo enseñamos</span>
+    <h2 class="sh">Metodología basada en el hacer</h2>
+    <div class="met-content">
+      <p>El plan de estudio combina las matrices curriculares de la educación parvularia con un plan específico diseñado por la fonoaudióloga y la educadora especialista, orientado a superar las dificultades del lenguaje de cada niño/a.</p>
+      <p>Nuestro enfoque pedagógico se basa en el <strong>constructivismo</strong>: el niño aprende haciendo. Además contamos con una sala de computación como apoyo al aprendizaje.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="p-icon">💻</div><div><h4>Tecnología como herramienta</h4><p>Sala de computación integrada al plan diario, potenciando el aprendizaje del lenguaje.</p></div></div>
+        <div class="pillar"><div class="p-icon">🎨</div><div><h4>Expresión artística</h4><p>Talleres artísticos que desarrollan la creatividad, la comunicación no verbal y la autoexpresión.</p></div></div>
+        <div class="pillar"><div class="p-icon">👨‍👩‍👧</div><div><h4>Familia integrada</h4><p>Los apoderados participan activamente a través de talleres, jornadas y reuniones.</p></div></div>
+        <div class="pillar"><div class="p-icon">📊</div><div><h4>Evaluación semestral</h4><p>Evaluaciones en plan general y específico, con seguimiento individual de cada niño/a.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- EQUIPO -->
 <section id="equipo">
   <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;">
-      <div class="eyebrow">Nuestro equipo</div>
-      <h2 class="section-title" style="margin:0 auto;">Profesionales con vocación</h2>
-      <p style="color:var(--gray-600);max-width:520px;margin:.5rem auto 0;">Un equipo multidisciplinario comprometido con el desarrollo integral de cada niño y niña.</p>
+    <div style="text-align:center;margin-bottom:2.4rem;">
+      <span class="tag">Nuestro equipo</span>
+      <h2 class="sh" style="margin:0 auto .6rem;">Profesionales con vocación</h2>
+      <p class="sub" style="max-width:480px;margin:0 auto;">Un equipo multidisciplinario comprometido con el desarrollo integral de cada niño y niña.</p>
     </div>
-    <div class="equipo-grid" style="grid-template-columns:1fr;max-width:400px;margin:0 auto;">
-      <div style="background:var(--gray-50);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;border:2px dashed var(--gray-300);">
-        <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">🔧</span>
-        <h4 style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);margin-bottom:.5rem;">En preparación</h4>
-        <p style="font-size:.9rem;color:var(--gray-400);">Próximamente presentaremos a nuestro equipo de profesionales.</p>
-      </div>
+    <div class="prep-card">
+      <span>🔧</span>
+      <h4>En preparación</h4>
+      <p>Próximamente presentaremos a nuestro equipo de profesionales.</p>
     </div>
-    </div>
+  </div>
 </section>
 
 <!-- VALORES -->
 <section id="valores">
   <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;">
-      <div class="eyebrow">Lo que nos mueve</div>
-      <h2 class="section-title" style="margin:0 auto;">Nuestros valores y compromisos</h2>
+    <div style="text-align:center;margin-bottom:2.4rem;">
+      <span class="tag">Lo que nos mueve</span>
+      <h2 class="sh" style="margin:0 auto .6rem;">Nuestros valores y compromisos</h2>
     </div>
-    <div class="valores-grid">
-      <div class="valor-card">
-        <span class="valor-icon">🤝</span>
-        <div class="valor-num">01</div>
-        <h4>Inclusión y respeto</h4>
-        <p>Recibimos a todos los niños y niñas en un ambiente acogedor, privilegiando la inclusión y el respeto a la diversidad en cada aspecto de nuestra comunidad escolar.</p>
-      </div>
-      <div class="valor-card">
-        <span class="valor-icon">💡</span>
-        <div class="valor-num">02</div>
-        <h4>Innovación pedagógica</h4>
-        <p>Utilizamos metodologías innovadoras y tecnología como herramientas de aprendizaje, buscando siempre nuevas formas de potenciar el desarrollo del lenguaje.</p>
-      </div>
-      <div class="valor-card">
-        <span class="valor-icon">👨‍👩‍👧</span>
-        <div class="valor-num">03</div>
-        <h4>Trabajo colaborativo</h4>
-        <p>Involucramos activamente a las familias en el proceso educativo, convirtiendo a los apoderados en agentes de cambio dentro y fuera del aula.</p>
-      </div>
-      <div class="valor-card">
-        <span class="valor-icon">🌱</span>
-        <div class="valor-num">04</div>
-        <h4>Superación y vocación</h4>
-        <p>Creemos en el potencial de cada niño y niña. Nuestro equipo trabaja con vocación genuina para que cada alumno logre integrarse plenamente a la educación formal.</p>
-      </div>
+    <div class="val-grid">
+      <div class="vc"><span class="vc-icon">🤝</span><h4>Inclusión y respeto</h4><p>Recibimos a todos los niños y niñas en un ambiente acogedor, privilegiando la inclusión y el respeto a la diversidad en cada aspecto de nuestra comunidad escolar.</p></div>
+      <div class="vc"><span class="vc-icon">💡</span><h4>Innovación pedagógica</h4><p>Utilizamos metodologías innovadoras y tecnología como herramientas de aprendizaje, buscando siempre nuevas formas de potenciar el desarrollo del lenguaje.</p></div>
+      <div class="vc"><span class="vc-icon">👨‍👩‍👧</span><h4>Trabajo colaborativo</h4><p>Involucramos activamente a las familias en el proceso educativo, convirtiendo a los apoderados en agentes de cambio dentro y fuera del aula.</p></div>
+      <div class="vc"><span class="vc-icon">🌱</span><h4>Superación y vocación</h4><p>Creemos en el potencial de cada niño y niña. Nuestro equipo trabaja con vocación genuina para que cada alumno logre integrarse a la educación formal.</p></div>
     </div>
   </div>
 </section>
@@ -448,60 +269,32 @@
 <!-- INFRAESTRUCTURA -->
 <section id="infraestructura">
   <div class="container">
-    <div style="text-align:center;margin-bottom:2.5rem;">
-      <div class="eyebrow">Instalaciones</div>
-      <h2 class="section-title" style="margin:0 auto;">Un espacio pensado para aprender</h2>
-      <p style="color:var(--gray-600);max-width:500px;margin:.5rem auto 0;">Contamos con infraestructura, equipamiento y material didáctico diseñado para el trabajo específico del lenguaje.</p>
+    <div style="text-align:center;margin-bottom:2.4rem;">
+      <span class="tag">Instalaciones</span>
+      <h2 class="sh" style="margin:0 auto .6rem;">Un espacio pensado para aprender</h2>
+      <p class="sub" style="max-width:480px;margin:0 auto;">Infraestructura, equipamiento y material didáctico diseñado para el trabajo específico del lenguaje.</p>
     </div>
     <div class="infra-grid">
-      <div class="infra-item">
-        <div class="infra-icon">🖥️</div>
-        <h4>Sala de computación</h4>
-        <p>Tecnología integrada al plan de estudios para actividades del lenguaje.</p>
-      </div>
-      <div class="infra-item">
-        <div class="infra-icon">🏫</div>
-        <h4>Salas de clases</h4>
-        <p>Mobiliario adecuado y equipamiento específico para cada nivel.</p>
-      </div>
-      <div class="infra-item">
-        <div class="infra-icon">🧩</div>
-        <h4>Material didáctico</h4>
-        <p>Recursos especializados para intervención fonoaudiológica y pedagógica.</p>
-      </div>
-      <div class="infra-item">
-        <div class="infra-icon">🌿</div>
-        <h4>Patio y jardín</h4>
-        <p>Área exterior para recreo supervisado, juego libre y actividades al aire libre.</p>
-      </div>
-      <div class="infra-item">
-        <div class="infra-icon">🚌</div>
-        <h4>Furgón escolar gratuito</h4>
-        <p>Servicio de transporte escolar sin costo para los alumnos, facilitando el acceso a la escuela.</p>
-      </div>
+      <div class="ii"><span class="ii-icon">🖥️</span><h4>Sala de computación</h4><p>Tecnología integrada al plan de estudios.</p></div>
+      <div class="ii"><span class="ii-icon">🏫</span><h4>Salas de clases</h4><p>Mobiliario y equipamiento por nivel.</p></div>
+      <div class="ii"><span class="ii-icon">🧩</span><h4>Material didáctico</h4><p>Recursos para intervención fonoaudiológica.</p></div>
+      <div class="ii"><span class="ii-icon">🌿</span><h4>Patio y jardín</h4><p>Recreo supervisado y juego libre.</p></div>
+      <div class="ii"><span class="ii-icon">🚌</span><h4>Furgón gratuito</h4><p>Transporte escolar sin costo.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- DECRETOS -->
+<!-- DECRETO -->
 <section id="decreto">
   <div class="container">
-    <div class="decreto-inner">
-      <div class="eyebrow" style="color:var(--orange);">Marco legal</div>
-      <h2 class="section-title">Funcionamos bajo normativa MINEDUC</h2>
-      <p style="color:var(--gray-600);max-width:560px;margin:.5rem auto 0;">Nuestra escuela opera conforme a los decretos del Ministerio de Educación de Chile que regulan las Escuelas Especiales de Lenguaje y la integración de alumnos con NEE.</p>
-      <div class="decreto-badges">
-        <div class="decreto-badge">
-          <div class="decreto-num">D° 1300</div>
-          <div class="decreto-label">Regula el funcionamiento de las Escuelas Especiales de Lenguaje en Chile</div>
-        </div>
-        <div class="decreto-badge">
-          <div class="decreto-num">D° 170</div>
-          <div class="decreto-label">Determina el diagnóstico e integración de alumnos con necesidades educativas especiales</div>
-        </div>
-        <div class="decreto-badge">
-          <div class="decreto-num">P. Sub.</div>
-          <div class="decreto-label">Particular subvencionada — atención completamente gratuita para las familias</div>
-        </div>
+    <div class="dec-inner">
+      <span class="tag o">Marco legal</span>
+      <h2 class="sh">Funcionamos bajo normativa MINEDUC</h2>
+      <p class="sub" style="max-width:540px;margin:.5rem auto 0;">Nuestra escuela opera conforme a los decretos del Ministerio de Educación que regulan las Escuelas Especiales de Lenguaje.</p>
+      <div class="dec-grid">
+        <div class="db"><div class="db-num">D° 1300</div><div class="db-label">Regula el funcionamiento de las Escuelas Especiales de Lenguaje en Chile</div></div>
+        <div class="db"><div class="db-num">D° 170</div><div class="db-label">Determina el diagnóstico e integración de alumnos con necesidades educativas especiales</div></div>
+        <div class="db"><div class="db-num">P. Sub.</div><div class="db-label">Particular subvencionada — atención completamente gratuita para las familias</div></div>
       </div>
     </div>
   </div>
@@ -510,42 +303,39 @@
 <!-- CTA -->
 <section id="cta-section">
   <div class="container">
-    <div class="cta-inner">
-      <div class="eyebrow" style="color:var(--green-d);">¿Quieres ser parte?</div>
+    <div class="cta-box">
+      <span class="tag">¿Quieres ser parte?</span>
       <h2>Dale a tu hijo/a la oportunidad de encontrar su voz</h2>
-      <p>Tenemos cupos disponibles para el año 2027. El proceso de evaluación e ingreso es gratuito y te acompañamos en cada paso.</p>
+      <p>El proceso de evaluación e ingreso es gratuito y te acompañamos en cada paso.</p>
       <div class="cta-btns">
-        <a href="escuela-tecnologica.html#contacto" class="btn-main">Solicitar matrícula →</a>
-        <a href="https://wa.me/56963039214?text=Hola,%20quiero%20información%20sobre%20la%20Escuela%20de%20Lenguaje%20Tecnológica." target="_blank" class="btn-outline">Escribir por WhatsApp</a>
+        <a href="index.html#contacto" class="btn-p">Solicitar matrícula</a>
+        <a href="https://wa.me/56963039214?text=Hola,%20quiero%20información%20sobre%20la%20Escuela%20de%20Lenguaje%20Tecnológica." target="_blank" class="btn-o">Escribir por WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="footer-logo-img"/>
+  <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="foot-logo"/>
   <p>Escuela Especial de Lenguaje Tecnológica — Del Rosario N°4, Puerto Varas</p>
-  <div class="footer-links">
+  <div class="foot-links">
     <a href="index.html">Inicio</a>
     <a href="sobre-nosotros.html">Sobre Nosotros</a>
     <a href="cronograma.html">Cronograma</a>
     <a href="galeria.html">Galería</a>
     <a href="index.html#contacto">Contacto</a>
   </div>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-    <a href="https://wa.me/56963039214" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-    <a href="mailto:esctecnologicapv@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-    <a href="https://www.instagram.com/esctecnologicapv" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg></a>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a href="https://wa.me/56963039214" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+    <a href="mailto:esctecnologicapv@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    <a href="https://www.instagram.com/esctecnologicapv" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg></a>
   </div>
-  <hr class="footer-divider"/>
-  <p class="footer-copy">© 2025 Escuela Especial de Lenguaje Tecnológica. Todos los derechos reservados.</p>
+  <hr class="foot-hr"/>
+  <p class="foot-copy">© 2025 Escuela Especial de Lenguaje Tecnológica. Todos los derechos reservados.</p>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/56963039214?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20la%20matrícula."
-   target="_blank" class="whatsapp-float" title="WhatsApp">
+<a href="https://wa.me/56963039214?text=Hola,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20la%20matr%C3%ADcula." target="_blank" class="wa" title="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -553,7 +343,7 @@
   function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
   document.addEventListener('click',function(e){
     const m=document.getElementById('mobileMenu'),b=document.querySelector('.hamburger');
-    if(m&&m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');
+    if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');
   });
 </script>
 </body>
