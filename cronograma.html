@@ -4,225 +4,69 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cronograma — Escuela de Lenguaje Tecnológica</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-  <style><style>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{
-      --green:#7EC8A4;--green-light:#B8E4D0;--green-pale:#E8F7F1;
-      --orange:#F4A96A;--orange-pale:#FEF3E8;
-      --sky:#7AC4DC;--sky-pale:#E5F5FB;
-      --yellow:#F6D15E;--yellow-pale:#FEFAE8;
-      --white:#FFFFFF;--gray-50:#F9FAFB;--gray-100:#F1F3F5;
-      --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-600:#4B5563;
-      --text:#2D3A4A;--radius:14px;--radius-lg:22px;
-    }
+    :root{--g:#7EC8A4;--g2:#5aaa83;--gp:#E8F7F1;--gl:#B8E4D0;--o:#F4A96A;--op:#FEF3E8;--s:#7AC4DC;--sp:#E5F5FB;--w:#fff;--gray:#F7F8FA;--g100:#F0F2F5;--g400:#9CA3AF;--g600:#4B5563;--text:#1E2B3A;--r:12px;--rl:20px;}
     html{scroll-behavior:smooth;}
-    body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);line-height:1.65;}
-
-    /* NAV */
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--w);line-height:1.7;-webkit-font-smoothing:antialiased;}
     .nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
-    .nav-logo-img{height:52px;width:auto;object-fit:contain;display:block;}
-    .nav-logo-icon{display:none;}
-    .nav-logo-text{display:none;}
-
-    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:2px solid var(--green-light);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
-    
-    
-    
-    
-    .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
-    .nav-links a{text-decoration:none;color:var(--gray-600);font-weight:600;font-size:.9rem;transition:color .2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--green);}
-    .nav-cta{background:var(--orange);color:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;padding:.55rem 1.2rem;border-radius:30px;text-decoration:none;transition:background .2s,transform .15s;}
+    .nav-logo-img{height:50px;width:auto;object-fit:contain;display:block;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--g100);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{text-decoration:none;color:var(--g600);font-weight:500;font-size:.88rem;transition:color .18s;white-space:nowrap;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--g);transform:scaleX(0);transition:transform .2s;border-radius:2px;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{background:var(--o);color:var(--w);font-family:'Nunito',sans-serif;font-weight:800;font-size:.84rem;padding:.48rem 1.2rem;border-radius:30px;text-decoration:none;transition:background .18s,transform .15s;white-space:nowrap;flex-shrink:0;}
     .nav-cta:hover{background:#e8944f;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
     .mobile-menu{display:none;}
-
-    /* PAGE HERO */
-    .page-hero{
-      background:linear-gradient(135deg,var(--sky-pale) 0%,var(--green-pale) 100%);
-      padding:60px 2rem 50px;text-align:center;
-    }
-    .page-hero-badge{display:inline-block;background:var(--sky);color:var(--white);font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .9rem;border-radius:30px;margin-bottom:1rem;}
-    .page-hero h1{font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--text);margin-bottom:.8rem;}
-    .page-hero p{color:var(--gray-600);font-size:1.05rem;max-width:520px;margin:0 auto;}
-
-    /* LAYOUT */
-    .container{max-width:1100px;margin:0 auto;}
-    section{padding:60px 2rem;}
-    .section-eyebrow{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem;}
-    .section-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2rem);color:var(--text);margin-bottom:1rem;}
-
-    /* HORARIO SEMANAL */
-    #horario-semanal{background:var(--white);}
-    .week-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:1rem;
-    }
-    .day-col{display:flex;flex-direction:column;gap:.7rem;}
-    .day-header{
-      background:var(--green);color:var(--white);
-      font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;
-      padding:.7rem;border-radius:var(--radius);text-align:center;
-    }
-    .day-col:nth-child(5) .day-header{background:var(--sky);}
-    .block{
-      background:var(--gray-50);border-radius:var(--radius);
-      padding:.8rem .9rem;border-left:3px solid var(--green);
-      font-size:.83rem;
-    }
-    .day-col:nth-child(5) .block{border-left-color:var(--sky);}
-    .block-time{font-family:'Nunito',sans-serif;font-weight:700;color:var(--green);font-size:.78rem;display:block;margin-bottom:.2rem;}
-    .day-col:nth-child(5) .block-time{color:var(--sky);}
-    .block-label{color:var(--text);font-weight:600;display:block;}
-    .block-sub{color:var(--gray-600);font-size:.78rem;margin-top:.15rem;display:block;}
-    .block.break{border-left-color:var(--orange);background:var(--orange-pale);}
-    .block.break .block-time{color:var(--orange);}
-
-    /* CALENDARIO EVENTOS */
-    #eventos{background:var(--gray-50);}
-    .eventos-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;}
-    .mes-selector{display:flex;gap:.5rem;flex-wrap:wrap;}
-    .mes-btn{
-      background:var(--white);border:2px solid var(--gray-100);border-radius:30px;
-      padding:.35rem .9rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;
-      cursor:pointer;color:var(--gray-600);transition:all .2s;
-    }
-    .mes-btn:hover,.mes-btn.active{background:var(--green);color:var(--white);border-color:var(--green);}
-
-    .eventos-list{display:flex;flex-direction:column;gap:1.1rem;}
-    .evento-item{
-      display:flex;gap:1.2rem;align-items:flex-start;
-      background:var(--white);border-radius:var(--radius-lg);padding:1.4rem 1.6rem;
-      box-shadow:0 2px 10px rgba(0,0,0,.06);
-      border-left:4px solid var(--green);
-      transition:box-shadow .2s;
-    }
-    .evento-item:hover{box-shadow:0 5px 18px rgba(0,0,0,.1);}
-    .evento-item.orange{border-left-color:var(--orange);}
-    .evento-item.sky{border-left-color:var(--sky);}
-    .evento-item.yellow{border-left-color:var(--yellow);}
-    .evento-fecha{
-      min-width:54px;text-align:center;
-      background:var(--green-pale);border-radius:var(--radius);
-      padding:.6rem .5rem;flex-shrink:0;
-    }
-    .evento-item.orange .evento-fecha{background:var(--orange-pale);}
-    .evento-item.sky .evento-fecha{background:var(--sky-pale);}
-    .evento-item.yellow .evento-fecha{background:var(--yellow-pale);}
-    .evento-dia{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.4rem;color:var(--green);line-height:1;}
-    .evento-item.orange .evento-dia{color:var(--orange);}
-    .evento-item.sky .evento-dia{color:var(--sky);}
-    .evento-item.yellow .evento-dia{color:#c8a80a;}
-    .evento-mes{font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--gray-400);letter-spacing:.05em;}
-    .evento-body{}
-    .evento-tipo{font-size:.75rem;font-family:'Nunito',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:.25rem;}
-    .evento-item.orange .evento-tipo{color:var(--orange);}
-    .evento-item.sky .evento-tipo{color:var(--sky);}
-    .evento-item.yellow .evento-tipo{color:#a87c00;}
-    .evento-titulo{font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:.3rem;}
-    .evento-desc{font-size:.88rem;color:var(--gray-600);}
-    .evento-hora{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--gray-400);margin-top:.5rem;}
-
-    .no-eventos{text-align:center;padding:3rem;color:var(--gray-400);font-size:.95rem;}
-    .no-eventos span{font-size:2.5rem;display:block;margin-bottom:.8rem;}
-
-    /* FOOTER */
-    
-    
-    
-    
-    
-    
-    
-
-    /* WHATSAPP */
-    .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:200;background:#25D366;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);text-decoration:none;transition:transform .2s;}
-    .whatsapp-float:hover{transform:scale(1.1);}
-    .whatsapp-float svg{width:26px;height:26px;fill:white;}
-
-    /* RESPONSIVE */
-    @media(max-width:900px){
-      .week-grid{grid-template-columns:repeat(3,1fr);}
-      .day-col:nth-child(4),.day-col:nth-child(5){display:none;}
-      .week-note{display:block;}
-    }
     @media(max-width:768px){
-      .nav-links,.nav-cta{display:none;}
-      .hamburger{display:flex;}
-      .mobile-menu{position:fixed;top:70px;left:0;right:0;background:var(--white);padding:1.5rem 2rem;box-shadow:0 8px 24px rgba(0,0,0,.12);flex-direction:column;gap:1.2rem;z-index:99;}
+      .nav-links,.nav-cta{display:none;}.hamburger{display:flex;}
+      .mobile-menu{position:fixed;top:68px;left:0;right:0;background:var(--w);padding:1.5rem 2rem;box-shadow:0 12px 32px rgba(0,0,0,.1);flex-direction:column;gap:1rem;z-index:99;border-top:1px solid var(--g100);}
       .mobile-menu.open{display:flex;}
-      .mobile-menu a{text-decoration:none;color:var(--text);font-weight:600;font-size:1rem;padding:.5rem 0;border-bottom:1px solid var(--gray-100);}
-      .mobile-menu .mob-cta{background:var(--orange);color:var(--white)!important;border:none!important;text-align:center;padding:.75rem!important;border-radius:30px;font-family:'Nunito',sans-serif;}
-      .week-grid{grid-template-columns:1fr 1fr;}
-      .day-col:nth-child(4),.day-col:nth-child(5){display:none;}
+      .mobile-menu a{text-decoration:none;color:var(--text);font-weight:500;font-size:1rem;padding:.6rem 0;border-bottom:1px solid var(--g100);}
+      .mobile-menu .mob-cta{background:var(--o);color:var(--w)!important;border:none!important;text-align:center;padding:.75rem!important;border-radius:30px;font-family:'Nunito',sans-serif;font-weight:800;margin-top:.3rem;}
     }
-    .week-note{display:none;margin-top:1rem;background:var(--sky-pale);border-radius:var(--radius);padding:.8rem 1rem;font-size:.85rem;color:var(--gray-600);border-left:3px solid var(--sky);}
-    @media(max-width:900px){.week-note{display:block;}}
-    }
-    }
-    }
-    }
-
-    /* ── TOPBAR ── */
-    .topbar{background:#5B8FCC;color:rgba(255,255,255,.92);font-size:.78rem;padding:0 1.4rem;height:36px;display:flex;align-items:center;justify-content:space-between;gap:1rem;overflow:hidden;}
-    .topbar-left{display:flex;align-items:center;gap:1.1rem;overflow:hidden;min-width:0;}
-    .topbar-item{display:flex;align-items:center;gap:.35rem;white-space:nowrap;flex-shrink:0;}
-    .topbar-item a{color:rgba(255,255,255,.92);text-decoration:none;transition:color .2s;}
-    .topbar-item a:hover{color:#fff;}
-    .topbar-right{flex-shrink:0;}
-    .topbar-social a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.75rem;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
-    .topbar-social a:hover{color:#fff;}
-
-    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
-    
-    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
-    .footer-links a:hover{color:#fff;}
-    
-    
-    
-    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
-    .footer-social a:hover{background:rgba(255,255,255,.38);}
-
-    @media(max-width:1020px){.topbar-item:nth-child(4){display:none;}}
-    @media(max-width:800px){.topbar-item:nth-child(3){display:none;}}
-    @media(max-width:600px){.topbar-item:nth-child(2){display:none;}}
-    @media(max-width:440px){.topbar{font-size:.72rem;padding:0 .8rem;gap:.5rem;}}
-
-    /* ── FOOTER ── */
-    footer{background:#5B8FCC;color:rgba(255,255,255,.92);padding:3rem 2rem 2rem;text-align:center;}
-    .footer-logo-img{height:70px;width:auto;object-fit:contain;margin:0 auto 1rem;display:block;}
-    footer p{font-size:.88rem;margin-bottom:.4rem;color:rgba(255,255,255,.85);}
-    .footer-links{display:flex;gap:1.5rem;justify-content:center;margin:1.2rem 0;flex-wrap:wrap;}
-    .footer-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.88rem;transition:color .2s;}
-    .footer-links a:hover{color:#fff;}
-    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,.22);margin:1.5rem auto;max-width:400px;}
-    .footer-copy{font-size:.8rem;color:rgba(255,255,255,.55);}
-    .footer-social{display:flex;gap:1rem;justify-content:center;margin-top:1rem;}
-    .footer-social a{width:38px;height:38px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .2s;}
-    .footer-social a:hover{background:rgba(255,255,255,.38);}
+    .coming{min-height:72vh;display:flex;align-items:center;justify-content:center;padding:4rem 2rem;background:linear-gradient(135deg,var(--sp) 0%,var(--gp) 100%);}
+    .coming-box{text-align:center;max-width:520px;}
+    .coming-box .big-icon{font-size:5rem;display:block;margin-bottom:1.5rem;}
+    .tag{display:inline-block;background:var(--sp);color:#3a8aaa;font-size:.72rem;font-weight:600;padding:.28rem .75rem;border-radius:20px;margin-bottom:1rem;border:1px solid var(--s);}
+    .coming-box h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--text);margin-bottom:.9rem;line-height:1.1;}
+    .coming-box p{color:var(--g600);font-size:1rem;margin-bottom:2rem;line-height:1.7;}
+    .btn-p{display:inline-block;background:var(--s);color:var(--w);font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;padding:.78rem 1.8rem;border-radius:30px;text-decoration:none;transition:background .18s,transform .15s;box-shadow:0 4px 18px rgba(122,196,220,.4);}
+    .btn-p:hover{background:#5aabcc;transform:translateY(-2px);}
+    footer{background:#3A6FAF;color:rgba(255,255,255,.88);padding:3rem 2rem 2rem;text-align:center;}
+    .foot-logo{height:66px;object-fit:contain;margin:0 auto .9rem;display:block;}
+    footer p{font-size:.86rem;margin-bottom:.35rem;color:rgba(255,255,255,.78);}
+    .foot-links{display:flex;gap:1.4rem;justify-content:center;margin:1.1rem 0;flex-wrap:wrap;}
+    .foot-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.86rem;transition:color .18s;}
+    .foot-links a:hover{color:#fff;}
+    .foot-hr{border:none;border-top:1px solid rgba(255,255,255,.18);margin:1.4rem auto;max-width:360px;}
+    .foot-copy{font-size:.76rem;color:rgba(255,255,255,.45);}
+    .foot-social{display:flex;gap:.9rem;justify-content:center;margin-top:.9rem;}
+    .foot-social a{width:36px;height:36px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .18s;}
+    .foot-social a:hover{background:rgba(255,255,255,.35);}
+    .wa{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;}
+    .wa:hover{transform:scale(1.08);}
+    .wa svg{width:27px;height:27px;fill:white;}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
   </style>
 </head>
 <body>
-
 <nav>
-    <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="nav-logo-img"/>
-  </a>
-    <ul class="nav-links">
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="nav-logo-img"/></a>
+  <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
     <li><a href="cronograma.html" class="active">Cronograma</a></li>
     <li><a href="galeria.html">Galería</a></li>
   </ul>
   <a href="index.html#contacto" class="nav-cta">Inscribir a mi hijo/a</a>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú"><span></span><span></span><span></span></button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="toggleMenu()">Inicio</a>
   <a href="sobre-nosotros.html" onclick="toggleMenu()">Sobre Nosotros</a>
@@ -231,71 +75,35 @@
   <a href="index.html#contacto" class="mob-cta" onclick="toggleMenu()">Inscribir a mi hijo/a</a>
 </div>
 
-
-<!-- COMING SOON -->
-<div style="min-height:60vh;display:flex;align-items:center;justify-content:center;padding:4rem 2rem;background:linear-gradient(135deg,#E8F7F1 0%,#E5F5FB 100%);">
-  <div style="text-align:center;max-width:560px;">
-    <span style="font-size:4rem;display:block;margin-bottom:1.5rem;">🗓️</span>
-    <div style="display:inline-block;background:#7EC8A4;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.35rem 1rem;border-radius:30px;margin-bottom:1.2rem;">Próximamente</div>
-    <h1 style="font-family:'Nunito',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);color:#2D3A4A;margin-bottom:1rem;line-height:1.2;">Cronograma 2027</h1>
-    <p style="font-size:1.05rem;color:#4B5563;margin-bottom:2rem;">Estamos preparando el cronograma completo de actividades, horarios y eventos para el año escolar 2027. ¡Vuelve pronto!</p>
-    <a href="index.html" style="display:inline-block;background:#7EC8A4;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.95rem;padding:.8rem 2rem;border-radius:30px;text-decoration:none;box-shadow:0 4px 14px rgba(126,200,164,.4);transition:background .2s;">← Volver al inicio</a>
+<div class="coming">
+  <div class="coming-box">
+    <span class="big-icon">🗓️</span>
+    <span class="tag">Próximamente</span>
+    <h1>Cronograma 2027</h1>
+    <p>Estamos preparando el cronograma completo de horarios, actividades y eventos para el año escolar 2027. ¡Vuelve pronto para verlo aquí!</p>
+    <a href="index.html" class="btn-p">← Volver al inicio</a>
   </div>
 </div>
 
-
-<!-- FOOTER -->
 <footer>
-  <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="footer-logo-img"/>
+  <img src="logo.png" alt="Escuela de Lenguaje Tecnológica" class="foot-logo"/>
   <p>Escuela Especial de Lenguaje Tecnológica — Del Rosario N°4, Puerto Varas</p>
-  <div class="footer-links">
-    <a href="index.html">Inicio</a>
-    <a href="sobre-nosotros.html">Sobre Nosotros</a>
-    <a href="cronograma.html">Cronograma</a>
-    <a href="galeria.html">Galería</a>
-    <a href="index.html#contacto">Contacto</a>
+  <div class="foot-links">
+    <a href="index.html">Inicio</a><a href="sobre-nosotros.html">Sobre Nosotros</a><a href="cronograma.html">Cronograma</a><a href="galeria.html">Galería</a><a href="index.html#contacto">Contacto</a>
   </div>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-    <a href="https://wa.me/56963039214" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-    <a href="mailto:esctecnologicapv@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-    <a href="https://www.instagram.com/esctecnologicapv" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="white" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg></a>
+  <div class="foot-social">
+    <a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a href="https://wa.me/56963039214" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+    <a href="mailto:esctecnologicapv@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    <a href="https://www.instagram.com/esctecnologicapv" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg></a>
   </div>
-  <hr class="footer-divider"/>
-  <p class="footer-copy">© 2025 Escuela Especial de Lenguaje Tecnológica. Todos los derechos reservados.</p>
+  <hr class="foot-hr"/>
+  <p class="foot-copy">© 2025 Escuela Especial de Lenguaje Tecnológica. Todos los derechos reservados.</p>
 </footer>
-
-<a href="https://wa.me/56963039214?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20la%20matrícula."
-   target="_blank" class="whatsapp-float" title="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
-
+<a href="https://wa.me/56963039214?text=Hola" target="_blank" class="wa" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 <script>
   function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-  document.addEventListener('click',function(e){
-    const m=document.getElementById('mobileMenu'),b=document.querySelector('.hamburger');
-    if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');
-  });
-
-  function filtrarMes(mes, btn) {
-    document.querySelectorAll('.mes-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const items = document.querySelectorAll('.evento-item');
-    let visible = 0;
-    items.forEach(item => {
-      if(mes==='todos'||item.dataset.mes===mes){item.style.display='flex';visible++;}
-      else item.style.display='none';
-    });
-    const lista = document.getElementById('eventosList');
-    let noEvt = lista.querySelector('.no-eventos');
-    if(visible===0){
-      if(!noEvt){
-        noEvt=document.createElement('div');noEvt.className='no-eventos';
-        noEvt.innerHTML='<span>📭</span>No hay eventos programados para este mes.';
-        lista.appendChild(noEvt);
-      }
-    } else if(noEvt) noEvt.remove();
-  }
+  document.addEventListener('click',function(e){const m=document.getElementById('mobileMenu'),b=document.querySelector('.hamburger');if(m.classList.contains('open')&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});
 </script>
 </body>
 </html>
