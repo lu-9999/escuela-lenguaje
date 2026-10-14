@@ -38,7 +38,7 @@
       --color-text-soft:   #4B5A6A;
       --color-text-muted:  #8A96A3;
       /* Brand dark (topbar/footer) */
-      --color-brand-dark:  #2D5A8E;
+      --color-brand-dark:  #3A6FAF;
       /* Typography */
       --font-display: 'Nunito', sans-serif;
       --font-body:    'Inter', sans-serif;
@@ -832,7 +832,7 @@
         <h2 class="cont__title">¿Listo para dar el primer paso?</h2>
         <p class="cont__p">Completa el formulario y te contactaremos a la brevedad. También puedes escribirnos por WhatsApp.</p>
         <div class="cont-items">
-          <div class="ci"><div class="ci__icon ci__icon--g" aria-hidden="true">📞</div><div><strong>Teléfono / WhatsApp</strong><a href="https://wa.me/56963039214" target="_blank" rel="noopener">+56 9 6303 9214</a></div></div>
+          <div class="ci"><div class="ci__icon ci__icon--g" aria-hidden="true">📞</div><div><strong>Teléfono / WhatsApp</strong><a href="https://wa.me/56951491977" target="_blank" rel="noopener">+56 9 5149 1977</a></div></div>
           <div class="ci"><div class="ci__icon ci__icon--o" aria-hidden="true">✉️</div><div><strong>Correo</strong><a href="mailto:esctecnologicapv@gmail.com">esctecnologicapv@gmail.com</a></div></div>
           <div class="ci"><div class="ci__icon ci__icon--s" aria-hidden="true">📘</div><div><strong>Facebook</strong><a href="https://www.facebook.com/escuelita.tecnologica" target="_blank" rel="noopener">@escuelita.tecnologica</a></div></div>
           <div class="ci"><div class="ci__icon ci__icon--s" aria-hidden="true">📍</div><div><strong>Dirección</strong><span>Del Rosario N°4, Puerto Varas</span></div></div>
@@ -925,10 +925,7 @@
     dots[si].classList.add('active');
     dots[si].setAttribute('aria-selected','true');
   }
-  // Pause slider if user prefers reduced motion
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    setInterval(() => goSlide(si + 1), 4800);
-  }
+  setInterval(() => goSlide(si + 1), 4800);
 
   /* ── NAV ── */
   const hamburger = document.querySelector('.hamburger');
